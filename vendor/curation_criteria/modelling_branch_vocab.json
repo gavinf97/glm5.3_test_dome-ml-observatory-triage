@@ -1,0 +1,483 @@
+{
+  "source": "NLM MeSH AI/ML branch (all descriptor IDs verified live against id.nlm.nih.gov, 2026-08-26) plus 4 clearly-flagged project extensions where MeSH has no descriptor",
+  "decided": "2026-08-26",
+  "decision_note": "Two-axis split agreed with Gavin: learning_paradigm (how the model learns; textbook-consensus axis) and model_family (what kind of system/method family; cross-cutting, multi-label). Gavin's two amendments incorporated: (1) AI agent vs agentic system as two separate terms -- different degrees of agency, task-specific agent vs Biomni-style system; (2) classical machine learning added so classic supervised/unsupervised methods (SVM, random forest, k-means, ...) have a family to land in -- individual classical methods have their own real MeSH descriptors (e.g. Support Vector Machine D060388, Random Forest D000093743) but MeSH has no family-level grouping for them, hence project extension.",
+  "fields": {
+    "learning_paradigm": {
+      "max_tags": 2,
+      "guidance": "How the model learns. Usually exactly 1; use 2 only for genuine hybrids.",
+      "terms": [
+        {
+          "label": "supervised",
+          "mesh_id": "D000069553",
+          "mesh_label": "Supervised Machine Learning",
+          "ontology_mappings": [
+            {
+              "ontology": "mesh",
+              "id": "mesh:D000069553",
+              "iri": "http://id.nlm.nih.gov/mesh/D000069553",
+              "label": "Supervised Machine Learning",
+              "predicate": "skos:exactMatch",
+              "matched_on": "mesh_label",
+              "match_string": "Supervised Machine Learning",
+              "source": "ols4+zooma+nlm",
+              "checked": "2026-09-15"
+            },
+            {
+              "ontology": "aio",
+              "id": "AIO:SupervisedLearning",
+              "iri": "https://w3id.org/aio/SupervisedLearning",
+              "label": "Supervised Learning",
+              "predicate": "skos:exactMatch",
+              "matched_on": "label",
+              "match_string": "supervised learning",
+              "source": "ols4+zooma",
+              "checked": "2026-09-15"
+            },
+            {
+              "ontology": "obi",
+              "id": "OBI:0002588",
+              "iri": "http://purl.obolibrary.org/obo/OBI_0002588",
+              "label": "supervised machine learning",
+              "predicate": "skos:exactMatch",
+              "matched_on": "mesh_label",
+              "match_string": "Supervised Machine Learning",
+              "source": "ols4+zooma",
+              "checked": "2026-09-15"
+            }
+          ]
+        },
+        {
+          "label": "unsupervised",
+          "mesh_id": "D000069558",
+          "mesh_label": "Unsupervised Machine Learning",
+          "ontology_mappings": [
+            {
+              "ontology": "mesh",
+              "id": "mesh:D000069558",
+              "iri": "http://id.nlm.nih.gov/mesh/D000069558",
+              "label": "Unsupervised Machine Learning",
+              "predicate": "skos:exactMatch",
+              "matched_on": "mesh_label",
+              "match_string": "Unsupervised Machine Learning",
+              "source": "ols4+zooma+nlm",
+              "checked": "2026-09-15"
+            },
+            {
+              "ontology": "aio",
+              "id": "AIO:UnsupervisedLearning",
+              "iri": "https://w3id.org/aio/UnsupervisedLearning",
+              "label": "Unsupervised Learning",
+              "predicate": "skos:exactMatch",
+              "matched_on": "label",
+              "match_string": "unsupervised learning",
+              "source": "ols4+zooma",
+              "checked": "2026-09-15"
+            },
+            {
+              "ontology": "obi",
+              "id": "OBI:0002589",
+              "iri": "http://purl.obolibrary.org/obo/OBI_0002589",
+              "label": "unsupervised machine learning",
+              "predicate": "skos:exactMatch",
+              "matched_on": "mesh_label",
+              "match_string": "Unsupervised Machine Learning",
+              "source": "ols4+zooma",
+              "checked": "2026-09-15"
+            }
+          ]
+        },
+        {
+          "label": "semi-supervised",
+          "mesh_id": null,
+          "extension": true,
+          "definition": "Learning from a mix of labelled and unlabelled data. Standard textbook category; verified absent from MeSH (exact + contains lookups empty).",
+          "ontology_mappings": []
+        },
+        {
+          "label": "reinforcement",
+          "mesh_id": "D000098408",
+          "mesh_label": "Reinforcement Machine Learning",
+          "ontology_mappings": [
+            {
+              "ontology": "mesh",
+              "id": "mesh:D000098408",
+              "iri": "http://id.nlm.nih.gov/mesh/D000098408",
+              "label": "Reinforcement Machine Learning",
+              "predicate": "skos:exactMatch",
+              "matched_on": "mesh_label",
+              "match_string": "Reinforcement Machine Learning",
+              "source": "ols4+zooma+nlm",
+              "checked": "2026-09-15"
+            },
+            {
+              "ontology": "aio",
+              "id": "AIO:ReinforcementLearning",
+              "iri": "https://w3id.org/aio/ReinforcementLearning",
+              "label": "Reinforcement Learning",
+              "predicate": "skos:exactMatch",
+              "matched_on": "label",
+              "match_string": "reinforcement learning",
+              "source": "ols4+zooma",
+              "checked": "2026-09-15"
+            }
+          ]
+        }
+      ]
+    },
+    "model_family": {
+      "max_tags": 3,
+      "guidance": "What kind of system/method family. Cross-cutting and multi-label: a supervised paper can be deep learning + ensemble at once. Boundary between the two classical terms: non-neural statistical learning methods go to 'classical machine learning'; shallow/non-deep neural approaches go to 'classic neural network'; deep architectures go to 'deep learning'.",
+      "terms": [
+        {
+          "label": "classical machine learning",
+          "mesh_id": null,
+          "extension": true,
+          "definition": "Non-neural, non-deep statistical learning methods: SVM, random forest, gradient boosting, k-NN, decision trees, k-means and other classical clustering, etc. Community-consensus term (the standard 'classical ML vs deep learning' dichotomy); individual member methods have their own real MeSH descriptors (Support Vector Machine D060388, Random Forest D000093743, Cluster Analysis D016000) but MeSH has no family-level grouping.",
+          "ontology_mappings": []
+        },
+        {
+          "label": "deep learning",
+          "mesh_id": "D000077321",
+          "mesh_label": "Deep Learning",
+          "ontology_mappings": [
+            {
+              "ontology": "mesh",
+              "id": "mesh:D000077321",
+              "iri": "http://id.nlm.nih.gov/mesh/D000077321",
+              "label": "Deep Learning",
+              "predicate": "skos:exactMatch",
+              "matched_on": "label",
+              "match_string": "deep learning",
+              "source": "ols4+zooma+nlm",
+              "checked": "2026-09-15"
+            },
+            {
+              "ontology": "ncit",
+              "id": "NCIT:C176258",
+              "iri": "http://purl.obolibrary.org/obo/NCIT_C176258",
+              "label": "Deep Learning",
+              "predicate": "skos:exactMatch",
+              "matched_on": "label",
+              "match_string": "deep learning",
+              "source": "ols4+zooma",
+              "checked": "2026-09-15"
+            }
+          ]
+        },
+        {
+          "label": "classic neural network",
+          "mesh_id": "D016571",
+          "mesh_label": "Neural Networks, Computer",
+          "definition": "Shallow/non-deep neural network approaches (e.g. a plain MLP); deep architectures go to 'deep learning' instead.",
+          "ontology_mappings": [
+            {
+              "ontology": "mesh",
+              "id": "mesh:D016571",
+              "iri": "http://id.nlm.nih.gov/mesh/D016571",
+              "label": "Neural Networks, Computer",
+              "predicate": "skos:exactMatch",
+              "matched_on": "mesh_label",
+              "match_string": "Neural Networks, Computer",
+              "source": "ols4+zooma+nlm",
+              "checked": "2026-09-15"
+            }
+          ]
+        },
+        {
+          "label": "large language model",
+          "mesh_id": "D000098342",
+          "mesh_label": "Large Language Models",
+          "mesh_introduced": 2025,
+          "ontology_mappings": [
+            {
+              "ontology": "mesh",
+              "id": "mesh:D000098342",
+              "iri": "http://id.nlm.nih.gov/mesh/D000098342",
+              "label": "Large Language Models",
+              "predicate": "skos:exactMatch",
+              "matched_on": "mesh_label",
+              "match_string": "Large Language Models",
+              "source": "ols4+zooma+nlm",
+              "checked": "2026-09-15"
+            },
+            {
+              "ontology": "aio",
+              "id": "AIO:LargeLanguageModel",
+              "iri": "https://w3id.org/aio/LargeLanguageModel",
+              "label": "Large Language Model",
+              "predicate": "skos:exactMatch",
+              "matched_on": "label",
+              "match_string": "large language model",
+              "source": "ols4+zooma",
+              "checked": "2026-09-15"
+            }
+          ]
+        },
+        {
+          "label": "generative AI",
+          "mesh_id": "D000098842",
+          "mesh_label": "Generative Artificial Intelligence",
+          "mesh_introduced": 2025,
+          "ontology_mappings": [
+            {
+              "ontology": "mesh",
+              "id": "mesh:D000098842",
+              "iri": "http://id.nlm.nih.gov/mesh/D000098842",
+              "label": "Generative Artificial Intelligence",
+              "predicate": "skos:exactMatch",
+              "matched_on": "mesh_label",
+              "match_string": "Generative Artificial Intelligence",
+              "source": "ols4+zooma+nlm",
+              "checked": "2026-09-15"
+            },
+            {
+              "ontology": "ncit",
+              "id": "NCIT:C221453",
+              "iri": "http://purl.obolibrary.org/obo/NCIT_C221453",
+              "label": "Generative Artificial Intelligence",
+              "predicate": "skos:exactMatch",
+              "matched_on": "mesh_label",
+              "match_string": "Generative Artificial Intelligence",
+              "source": "ols4+zooma",
+              "checked": "2026-09-15"
+            }
+          ]
+        },
+        {
+          "label": "natural language processing",
+          "mesh_id": "D009323",
+          "mesh_label": "Natural Language Processing",
+          "ontology_mappings": [
+            {
+              "ontology": "mesh",
+              "id": "mesh:D009323",
+              "iri": "http://id.nlm.nih.gov/mesh/D009323",
+              "label": "Natural Language Processing",
+              "predicate": "skos:exactMatch",
+              "matched_on": "label",
+              "match_string": "natural language processing",
+              "source": "ols4+zooma+nlm",
+              "checked": "2026-09-15"
+            },
+            {
+              "ontology": "aio",
+              "id": "AIO:NaturalLanguageProcessing",
+              "iri": "https://w3id.org/aio/NaturalLanguageProcessing",
+              "label": "Natural Language Processing",
+              "predicate": "skos:exactMatch",
+              "matched_on": "label",
+              "match_string": "natural language processing",
+              "source": "ols4+zooma",
+              "checked": "2026-09-15"
+            },
+            {
+              "ontology": "ncit",
+              "id": "NCIT:C176260",
+              "iri": "http://purl.obolibrary.org/obo/NCIT_C176260",
+              "label": "Natural Language Processing",
+              "predicate": "skos:exactMatch",
+              "matched_on": "label",
+              "match_string": "natural language processing",
+              "source": "ols4+zooma",
+              "checked": "2026-09-15"
+            },
+            {
+              "ontology": "edam",
+              "id": "EDAM:topic_0218",
+              "iri": "http://edamontology.org/topic_0218",
+              "label": "Natural language processing",
+              "predicate": "skos:exactMatch",
+              "matched_on": "label",
+              "match_string": "natural language processing",
+              "source": "ols4+zooma",
+              "checked": "2026-09-15"
+            }
+          ]
+        },
+        {
+          "label": "ensemble learning",
+          "mesh_id": "D000098406",
+          "mesh_label": "Ensemble Learning",
+          "ontology_mappings": [
+            {
+              "ontology": "mesh",
+              "id": "mesh:D000098406",
+              "iri": "http://id.nlm.nih.gov/mesh/D000098406",
+              "label": "Ensemble Learning",
+              "predicate": "skos:exactMatch",
+              "matched_on": "label",
+              "match_string": "ensemble learning",
+              "source": "ols4+zooma+nlm",
+              "checked": "2026-09-15"
+            },
+            {
+              "ontology": "aio",
+              "id": "AIO:EnsembleLearning",
+              "iri": "https://w3id.org/aio/EnsembleLearning",
+              "label": "Ensemble Learning",
+              "predicate": "skos:exactMatch",
+              "matched_on": "label",
+              "match_string": "ensemble learning",
+              "source": "ols4+zooma",
+              "checked": "2026-09-15"
+            }
+          ]
+        },
+        {
+          "label": "federated learning",
+          "mesh_id": "D000098407",
+          "mesh_label": "Federated Learning",
+          "ontology_mappings": [
+            {
+              "ontology": "mesh",
+              "id": "mesh:D000098407",
+              "iri": "http://id.nlm.nih.gov/mesh/D000098407",
+              "label": "Federated Learning",
+              "predicate": "skos:exactMatch",
+              "matched_on": "label",
+              "match_string": "federated learning",
+              "source": "ols4+zooma+nlm",
+              "checked": "2026-09-15"
+            },
+            {
+              "ontology": "aio",
+              "id": "AIO:FederatedLearning",
+              "iri": "https://w3id.org/aio/FederatedLearning",
+              "label": "Federated Learning",
+              "predicate": "skos:exactMatch",
+              "matched_on": "label",
+              "match_string": "federated learning",
+              "source": "ols4+zooma",
+              "checked": "2026-09-15"
+            }
+          ]
+        },
+        {
+          "label": "transfer learning",
+          "mesh_id": "D000098410",
+          "mesh_label": "Transfer Machine Learning",
+          "ontology_mappings": [
+            {
+              "ontology": "mesh",
+              "id": "mesh:D000098410",
+              "iri": "http://id.nlm.nih.gov/mesh/D000098410",
+              "label": "Transfer Machine Learning",
+              "predicate": "skos:exactMatch",
+              "matched_on": "mesh_label",
+              "match_string": "Transfer Machine Learning",
+              "source": "ols4+zooma+nlm",
+              "checked": "2026-09-15"
+            },
+            {
+              "ontology": "aio",
+              "id": "AIO:TransferLearning",
+              "iri": "https://w3id.org/aio/TransferLearning",
+              "label": "Transfer Learning",
+              "predicate": "skos:exactMatch",
+              "matched_on": "label",
+              "match_string": "transfer learning",
+              "source": "ols4+zooma",
+              "checked": "2026-09-15"
+            }
+          ]
+        },
+        {
+          "label": "representation learning",
+          "mesh_id": "D000098409",
+          "mesh_label": "Representation Machine Learning",
+          "ontology_mappings": [
+            {
+              "ontology": "mesh",
+              "id": "mesh:D000098409",
+              "iri": "http://id.nlm.nih.gov/mesh/D000098409",
+              "label": "Representation Machine Learning",
+              "predicate": "skos:exactMatch",
+              "matched_on": "mesh_label",
+              "match_string": "Representation Machine Learning",
+              "source": "ols4+zooma+nlm",
+              "checked": "2026-09-15"
+            },
+            {
+              "ontology": "aio",
+              "id": "AIO:RepresentationLearning",
+              "iri": "https://w3id.org/aio/RepresentationLearning",
+              "label": "Representation Learning",
+              "predicate": "skos:exactMatch",
+              "matched_on": "label",
+              "match_string": "representation learning",
+              "source": "ols4+zooma",
+              "checked": "2026-09-15"
+            }
+          ]
+        },
+        {
+          "label": "dimensionality reduction",
+          "mesh_id": "D000098405",
+          "mesh_label": "Dimensionality Reduction",
+          "ontology_mappings": [
+            {
+              "ontology": "mesh",
+              "id": "mesh:D000098405",
+              "iri": "http://id.nlm.nih.gov/mesh/D000098405",
+              "label": "Dimensionality Reduction",
+              "predicate": "skos:exactMatch",
+              "matched_on": "label",
+              "match_string": "dimensionality reduction",
+              "source": "ols4+zooma+nlm",
+              "checked": "2026-09-15"
+            },
+            {
+              "ontology": "aio",
+              "id": "AIO:DimensionalityReduction",
+              "iri": "https://w3id.org/aio/DimensionalityReduction",
+              "label": "Dimensionality Reduction",
+              "predicate": "skos:exactMatch",
+              "matched_on": "label",
+              "match_string": "dimensionality reduction",
+              "source": "ols4+zooma",
+              "checked": "2026-09-15"
+            },
+            {
+              "ontology": "obi",
+              "id": "OBI:0200050",
+              "iri": "http://purl.obolibrary.org/obo/OBI_0200050",
+              "label": "dimensionality reduction",
+              "predicate": "skos:exactMatch",
+              "matched_on": "label",
+              "match_string": "dimensionality reduction",
+              "source": "ols4+zooma",
+              "checked": "2026-09-15"
+            },
+            {
+              "ontology": "edam",
+              "id": "EDAM:operation_3935",
+              "iri": "http://edamontology.org/operation_3935",
+              "label": "Dimensionality reduction",
+              "predicate": "skos:exactMatch",
+              "matched_on": "label",
+              "match_string": "dimensionality reduction",
+              "source": "ols4+zooma",
+              "checked": "2026-09-15"
+            }
+          ]
+        },
+        {
+          "label": "AI agent",
+          "mesh_id": null,
+          "extension": true,
+          "definition": "A task-specific agent applying an AI model with some autonomy and/or tool use to a defined task -- a single agent, limited scope of agency. Verified absent from MeSH (every 'agent' descriptor is pharmacological).",
+          "ontology_mappings": []
+        },
+        {
+          "label": "agentic system",
+          "mesh_id": null,
+          "extension": true,
+          "definition": "A multi-component autonomous system orchestrating models, tools, and plans across tasks (e.g. Biomni-style systems) -- a higher degree of agency than a single task-specific AI agent. Verified absent from MeSH.",
+          "ontology_mappings": []
+        }
+      ]
+    }
+  },
+  "ontology_mappings_added": "2026-09-15 (schema v1.5.1): ontology_mappings added to every term. Each entry is an accepted match of the term's label, MeSH label or an alias to a term in MeSH, AIO, NCIT, OBI, SWO, STATO or EDAM, found with EBI OLS4, corroborated by Zooma, with every MeSH id confirmed at id.nlm.nih.gov. Sources, versions and rules: dome-ml-observatory-triage docs/vocabulary_ontology_mappings.md. Additive: no term, label, alias, mesh_id, definition or max_tags changed, and the key is not rendered into the enrichment prompt. An empty list means no accepted mapping."
+}

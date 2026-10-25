@@ -1,0 +1,107 @@
+{
+  "exported_utc": "2026-10-25T22:08:21.182368+00:00",
+  "seed": 20261025,
+  "unenriched": {
+    "query": {
+      "llm_classification.classification": "positive",
+      "llm_enrichment.provider": null,
+      "publication_metadata.title": {
+        "$nin": [
+          null,
+          ""
+        ]
+      },
+      "publication_metadata.abstract": {
+        "$nin": [
+          null,
+          ""
+        ]
+      }
+    },
+    "pool": 360566,
+    "sample_size": 40000,
+    "eligible_in_sample": 16532,
+    "selected": 500,
+    "floor_per_stratum": 10,
+    "venue_cap": 2,
+    "eligible_strata": {
+      "2016-2019|article": 1277,
+      "2016-2019|preprint": 113,
+      "2020-2022|article": 3440,
+      "2020-2022|preprint": 468,
+      "2023-2024|article": 3730,
+      "2023-2024|preprint": 584,
+      "2025-2026|article": 5243,
+      "2025-2026|preprint": 677,
+      "<=2015|article": 999,
+      "<=2015|preprint": 1
+    },
+    "strata": {
+      "2016-2019|article": 41,
+      "2016-2019|preprint": 12,
+      "2020-2022|article": 96,
+      "2020-2022|preprint": 21,
+      "2023-2024|article": 104,
+      "2023-2024|preprint": 24,
+      "2025-2026|article": 141,
+      "2025-2026|preprint": 26,
+      "<=2015|article": 34,
+      "<=2015|preprint": 1
+    },
+    "waves": {
+      "wave1": 250,
+      "wave2": 250
+    },
+    "distinct_venues": 330
+  },
+  "enriched100": {
+    "query": {
+      "llm_classification.classification": "positive",
+      "llm_enrichment.provider": {
+        "$ne": null
+      },
+      "llm_enrichment.parse_status": {
+        "$ne": "parse_error"
+      },
+      "llm_enrichment.timestamp": {
+        "$gte": "2026-09-10T04:00"
+      },
+      "publication_metadata.title": {
+        "$nin": [
+          null,
+          ""
+        ]
+      },
+      "publication_metadata.abstract": {
+        "$nin": [
+          null,
+          ""
+        ]
+      }
+    },
+    "pool": 200,
+    "selected": 100,
+    "venue_cap": 3,
+    "domain_tier1": {
+      "(none)": 2,
+      "Biology": 21,
+      "Biomedical science": 4,
+      "Chemistry": 19,
+      "Computational biology": 9,
+      "Computer science": 16,
+      "Experimental design and studies": 1,
+      "Literature and language": 1,
+      "Medicine": 22,
+      "Omics": 2,
+      "Physics": 3
+    },
+    "reference_batches": {
+      "enrich_flash_20260915T223452": 84,
+      "enrich_flash_20260915T223403": 16
+    },
+    "reference_ruleset_sha256": {
+      "41db952f15118176fa27dac724eff9dff59714b62854859d9606ef440ee473c7": 100
+    },
+    "distinct_venues": 59
+  }
+}

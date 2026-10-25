@@ -1,0 +1,21 @@
+# Secrets: the Z.ai key lives only in .env. Never commit it, whatever else changes here.
+.env
+.env.*
+!.env.example
+*.local.md
+*.pem
+*.key
+
+# Input cohorts carry titles and abstracts: regenerable from moros, never published.
+data/*
+!data/.gitkeep
+
+# Run state
+*.lock
+*.tmp
+
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/

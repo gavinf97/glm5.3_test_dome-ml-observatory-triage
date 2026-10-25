@@ -1,0 +1,6 @@
+# Host Python. The same packages the triage repository's host scripts use.
+pandas>=2.0
+requests>=2.31
+tqdm>=4.66
+pymongo>=4.6   # export_cohorts.py only, through the triage repo's read-only client
+pytest>=8.0

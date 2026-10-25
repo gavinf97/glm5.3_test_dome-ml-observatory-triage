@@ -1,0 +1,316 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GLM Enrichment Review</title>
+<style>
+:root {
+  --bg: #f7f7f5; --surface: #ffffff; --surface-2: #f0efeb; --text: #1d1d1b; --muted: #6b6a65;
+  --border: #dddcd6; --accent: #2f5bd3; --accent-soft: #e4ebfb;
+  --glm: #2f5bd3; --glm-soft: #e4ebfb; --ds: #a35a00; --ds-soft: #fbeedd;
+  --ok: #1e7a46; --ok-soft: #dff1e6; --part: #8a6a00; --part-soft: #f8f0d2;
+  --bad: #b3261e; --bad-soft: #f9e0de; --unsure: #5f5f5f; --unsure-soft: #e9e9e9;
+  --row-active: #fffbe6;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #161615; --surface: #1f1f1d; --surface-2: #2a2a27; --text: #ecebe6; --muted: #a09f98;
+    --border: #3a3a36; --accent: #8fb0ff; --accent-soft: #24304d;
+    --glm: #8fb0ff; --glm-soft: #24304d; --ds: #f0b062; --ds-soft: #43311a;
+    --ok: #6fd39a; --ok-soft: #1c3a28; --part: #e6c65a; --part-soft: #3d3418;
+    --bad: #ff8a80; --bad-soft: #472321; --unsure: #bdbdbd; --unsure-soft: #333;
+    --row-active: #2f2c1c;
+  }
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--text);
+  font: 15px/1.5 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+header { position: sticky; top: 0; z-index: 2; background: var(--surface); border-bottom: 1px solid var(--border);
+  padding: 10px 16px; display: flex; flex-wrap: wrap; gap: 10px 16px; align-items: center; }
+header h1 { font-size: 16px; margin: 0 8px 0 0; }
+select, button, textarea { font: inherit; color: inherit; }
+select, button { background: var(--surface-2); border: 1px solid var(--border); border-radius: 6px; padding: 4px 10px; }
+button { cursor: pointer; }
+button:hover { border-color: var(--accent); }
+label.toggle { display: inline-flex; gap: 6px; align-items: center; color: var(--muted); }
+.progress { color: var(--muted); font-variant-numeric: tabular-nums; }
+.bar { width: 140px; height: 6px; background: var(--surface-2); border-radius: 3px; overflow: hidden; display: inline-block; vertical-align: middle; }
+.bar > i { display: block; height: 100%; background: var(--ok); }
+main { max-width: 1400px; min-width: 0; margin: 0 auto; padding: 16px; display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 16px; }
+@media (max-width: 1000px) { main { grid-template-columns: minmax(0, 1fr); } }
+@media (max-width: 640px) {
+  thead { display: none; }
+  tbody tr { display: block; padding: 8px 0; border-bottom: 1px solid var(--border); }
+  tbody td { display: block; border: 0; padding: 4px 0; }
+  td.fname { width: auto; }
+}
+.card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 16px; }
+.card + .card { margin-top: 12px; }
+h2 { font-size: 18px; line-height: 1.35; margin: 0 0 6px; }
+h3 { font-size: 13px; text-transform: uppercase; letter-spacing: .04em; color: var(--muted); margin: 0 0 8px; }
+.meta { color: var(--muted); font-size: 13px; margin-bottom: 10px; }
+.meta a { color: var(--accent); }
+.abstract { white-space: pre-wrap; }
+.rationale { font-size: 14px; }
+.rationale .who { font-weight: 600; }
+.rationale .who.glm { color: var(--glm); } .rationale .who.ds { color: var(--ds); }
+table { width: 100%; border-collapse: collapse; }
+th, td { text-align: left; vertical-align: top; padding: 8px 6px; border-bottom: 1px solid var(--border); }
+th { font-size: 12px; color: var(--muted); font-weight: 600; }
+tr.active td { background: var(--row-active); }
+td.fname { width: 120px; font-weight: 600; font-size: 13px; }
+td.fname small { display: block; font-weight: 400; color: var(--muted); }
+.chip { display: inline-block; padding: 1px 8px; margin: 2px 4px 2px 0; border-radius: 999px; font-size: 13px;
+  background: var(--surface-2); border: 1px solid var(--border); }
+.chip.glm-only { background: var(--glm-soft); border-color: var(--glm); }
+.chip.ds-only { background: var(--ds-soft); border-color: var(--ds); }
+.chip.violation { border: 2px dashed var(--bad); }
+.none { color: var(--muted); font-style: italic; font-size: 13px; }
+.same { color: var(--ok); font-size: 12px; } .diff { color: var(--ds); font-size: 12px; }
+.verdicts, .prefs { display: flex; flex-wrap: wrap; gap: 4px; }
+.verdicts button, .prefs button { padding: 2px 8px; font-size: 13px; }
+.verdicts button.on[data-v="correct"] { background: var(--ok-soft); border-color: var(--ok); color: var(--ok); }
+.verdicts button.on[data-v="partly"] { background: var(--part-soft); border-color: var(--part); color: var(--part); }
+.verdicts button.on[data-v="wrong"] { background: var(--bad-soft); border-color: var(--bad); color: var(--bad); }
+.verdicts button.on[data-v="unsure"] { background: var(--unsure-soft); border-color: var(--unsure); color: var(--unsure); }
+.prefs { margin-top: 6px; }
+.prefs button.on { background: var(--accent-soft); border-color: var(--accent); color: var(--accent); }
+.prefs span { font-size: 12px; color: var(--muted); align-self: center; }
+textarea { width: 100%; min-height: 70px; background: var(--surface-2); border: 1px solid var(--border); border-radius: 6px; padding: 8px; }
+.keys { color: var(--muted); font-size: 12px; }
+kbd { font: 12px ui-monospace, monospace; background: var(--surface-2); border: 1px solid var(--border); border-radius: 4px; padding: 0 4px; }
+.warn { color: var(--bad); font-size: 13px; }
+.legend { font-size: 12px; color: var(--muted); display: flex; flex-wrap: wrap; gap: 10px; margin-top: 8px; }
+.rubric { font-size: 13px; color: var(--muted); margin: 8px 0 0; padding-left: 18px; }
+.empty { max-width: 700px; margin: 40px auto; padding: 16px; }
+.saved { color: var(--ok); font-size: 12px; min-width: 50px; }
+</style>
+</head>
+<body>
+<header>
+  <h1>GLM enrichment review</h1>
+  <select id="cohort" aria-label="Cohort"></select>
+  <label class="toggle"><input type="checkbox" id="unrated"> unrated only</label>
+  <label class="toggle" id="divergeWrap"><input type="checkbox" id="diverging"> diverging only</label>
+  <button id="prev" title="Previous (p)">&larr; Prev</button>
+  <span class="progress" id="pos"></span>
+  <button id="next" title="Next (n)">Next &rarr;</button>
+  <span class="progress"><span class="bar"><i id="barFill" style="width:0"></i></span> <span id="rated"></span></span>
+  <span class="saved" id="saved"></span>
+</header>
+<div id="app"></div>
+
+<script>
+const FIELD_LABELS = {
+  domain_tier1: ["EDAM domain", "tier 1, max 1"], domain_tier2: ["EDAM domain", "tier 2, max 2"],
+  domain_tier3: ["EDAM domain", "tier 3, max 3"], learning_paradigm: ["Learning paradigm", "max 2"],
+  model_family: ["Model family", "max 3"], model_type: ["Model type", "open, seeded"],
+};
+const VERDICTS = [["correct", "1 Correct"], ["partly", "2 Partly"], ["wrong", "3 Wrong"], ["unsure", "4 Can't judge"]];
+const PREFS = [["glm", "GLM"], ["equal", "Equal"], ["deepseek", "DeepSeek"]];
+const state = { config: null, cohort: null, records: [], index: 0, row: 0 };
+const $ = (id) => document.getElementById(id);
+const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({"&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"}[c]));
+const norm = (s) => String(s).trim().toLowerCase();
+// Europe PMC titles and abstracts carry a little inline markup; render only that, escaped otherwise.
+const rich = (s) => esc(s).replace(/&lt;(\/?)(sub|sup|i|b|em|strong)&gt;/gi, "<$1$2>");
+
+function storeGet(k, d) { try { return localStorage.getItem(k) ?? d; } catch { return d; } }
+function storeSet(k, v) { try { localStorage.setItem(k, v); } catch {} }
+
+function hasRef() { return (state.config.cohorts.find((c) => c.name === state.cohort) || {}).has_reference; }
+function ratable(rec) { return rec.fields.filter((f) => f.glm !== null); }
+function isRated(rec) { const r = ratable(rec); return r.length > 0 && r.every((f) => f.verdict); }
+function diverges(rec) { return rec.fields.some((f) => f.same === false); }
+function matches(rec) {
+  if ($("unrated").checked && isRated(rec)) return false;
+  if (hasRef() && $("diverging").checked && !diverges(rec)) return false;
+  return true;
+}
+
+async function load() {
+  state.config = await (await fetch("/api/config")).json();
+  const sel = $("cohort");
+  sel.innerHTML = state.config.cohorts.map((c) =>
+    `<option value="${c.name}" ${c.available ? "" : "disabled"}>${c.name}${c.available ? "" : " (not exported)"}</option>`).join("");
+  const remembered = new URLSearchParams(location.search).get("cohort") || storeGet("cohort", "");
+  const firstAvail = state.config.cohorts.find((c) => c.available);
+  sel.value = state.config.cohorts.some((c) => c.name === remembered && c.available) ? remembered : (firstAvail ? firstAvail.name : "");
+  await loadCohort();
+}
+
+async function loadCohort() {
+  state.cohort = $("cohort").value;
+  storeSet("cohort", state.cohort);
+  $("divergeWrap").style.display = hasRef() ? "" : "none";
+  if (!state.cohort) { $("app").innerHTML = `<div class="card empty">No cohort exported yet. Run <code>python3 scripts/export_cohorts.py</code>.</div>`; return; }
+  const data = await (await fetch(`/api/records?cohort=${encodeURIComponent(state.cohort)}`)).json();
+  state.records = data.records || [];
+  const saved = parseInt(storeGet(`index:${state.cohort}`, "0"), 10);
+  state.index = Math.min(Number.isFinite(saved) ? saved : 0, Math.max(state.records.length - 1, 0));
+  state.row = 0;
+  render();
+}
+
+function flagged(violations, field, v) {
+  // "<field>:unknown:<term>" or "<tier>:repaired_to_<field>:<term>" -- the term as it now sits in this field
+  return violations.some((x) => { const t = norm(x); return t.endsWith(":" + norm(v)) && (t.startsWith(field + ":") || t.includes(":repaired_to_" + field + ":")); });
+}
+
+function chips(values, other, violations, kind, field) {
+  if (values === null) return `<span class="none">not run yet</span>`;
+  if (!values.length) return `<span class="none">none</span>`;
+  const otherSet = other ? new Set(other.map(norm)) : null;
+  return values.map((v) => {
+    let cls = "chip";
+    if (otherSet && !otherSet.has(norm(v))) cls += kind === "glm" ? " glm-only" : " ds-only";
+    if (flagged(violations, field, v)) cls += " violation";
+    return `<span class="${cls}">${esc(v)}</span>`;
+  }).join("");
+}
+
+function render() {
+  const recs = state.records;
+  const done = recs.filter(isRated).length;
+  $("rated").textContent = `${done} / ${recs.length} rated`;
+  $("barFill").style.width = recs.length ? `${(done / recs.length) * 100}%` : "0";
+  if (!recs.length) { $("app").innerHTML = `<div class="card empty">This cohort has no records.</div>`; $("pos").textContent = ""; return; }
+  const rec = recs[state.index];
+  $("pos").textContent = `${state.index + 1} of ${recs.length}`;
+  storeSet(`index:${state.cohort}`, String(state.index));
+  const ref = hasRef();
+  const glmViol = rec.glm ? rec.glm.vocab_violations : [];
+  const dsViol = rec.deepseek ? rec.deepseek.vocab_violations : [];
+  const links = [
+    rec.doi && `<a href="https://doi.org/${esc(rec.doi)}" target="_blank" rel="noopener">DOI</a>`,
+    rec.pmid && `<a href="https://europepmc.org/article/MED/${esc(rec.pmid)}" target="_blank" rel="noopener">PMID ${esc(rec.pmid)}</a>`,
+    rec.pmcid && `<a href="https://europepmc.org/article/PMC/${esc(rec.pmcid)}" target="_blank" rel="noopener">${esc(rec.pmcid)}</a>`,
+  ].filter(Boolean).join(" · ");
+  const rows = rec.fields.map((f, i) => {
+    const [label, hint] = FIELD_LABELS[f.field];
+    const disabled = f.glm === null ? "disabled" : "";
+    const verdictBtns = VERDICTS.map(([v, t]) =>
+      `<button data-field="${f.field}" data-v="${v}" class="${f.verdict === v ? "on" : ""}" ${disabled}>${t}</button>`).join("");
+    const prefBtns = ref && f.same === false ? `<div class="prefs"><span>Better:</span>${PREFS.map(([p, t]) =>
+      `<button data-field="${f.field}" data-p="${p}" class="${f.preference === p ? "on" : ""}">${t}</button>`).join("")}</div>` : "";
+    const agree = ref && f.same !== null ? (f.same ? `<div class="same">match</div>` : `<div class="diff">differs</div>`) : "";
+    return `<tr data-row="${i}" class="${i === state.row ? "active" : ""}">
+      <td class="fname">${label}<small>${hint}</small>${agree}</td>
+      <td>${chips(f.glm, ref ? f.deepseek : null, glmViol, "glm", f.field)}</td>
+      ${ref ? `<td>${chips(f.deepseek, f.glm, dsViol, "ds", f.field)}</td>` : ""}
+      <td><div class="verdicts">${verdictBtns}</div>${prefBtns}</td></tr>`;
+  }).join("");
+  const status = !rec.glm ? `<p class="warn">GLM has not enriched this record yet.</p>`
+    : rec.glm.parse_status !== "ok" ? `<p class="warn">GLM: ${esc(rec.glm.parse_status)}${rec.glm.finish_reason === "length" ? " (truncated at the token cap)" : ""}</p>` : "";
+  const viol = [...glmViol.map((v) => `GLM: ${v}`), ...dsViol.map((v) => `DeepSeek: ${v}`)];
+  $("app").innerHTML = `<main>
+    <section>
+      <div class="card">
+        <h2>${rich(rec.title)}</h2>
+        <div class="meta">${esc(rec.journal || rec.preprint_server || "(no journal)")} · ${esc(rec.year || "no year")}${rec.stratum ? " · " + esc(rec.stratum) : ""}${links ? " · " + links : ""}</div>
+        <div class="abstract">${rich(rec.abstract)}</div>
+      </div>
+      <div class="card rationale">
+        <h3>Rationale</h3>
+        ${rec.glm ? `<p><span class="who glm">GLM</span> ${esc(rec.glm.rationale)}</p>` : ""}
+        ${rec.deepseek ? `<p><span class="who ds">DeepSeek</span> ${esc(rec.deepseek.rationale)}</p>` : ""}
+      </div>
+    </section>
+    <section>
+      <div class="card">
+        <h3>Tags${ref ? " — GLM-5.3-Flash vs DeepSeek V4.1 (stored)" : " — GLM-5.3-Flash"}</h3>
+        ${status}
+        <table>
+          <thead><tr><th>Field</th><th>GLM</th>${ref ? "<th>DeepSeek</th>" : ""}<th>Your verdict on GLM</th></tr></thead>
+          <tbody>${rows}</tbody>
+        </table>
+        ${viol.length ? `<p class="warn">Vocabulary violations: ${viol.map(esc).join("; ")}</p>` : ""}
+        <div class="legend">${ref ? `<span><span class="chip">shared</span></span><span><span class="chip glm-only">GLM only</span></span><span><span class="chip ds-only">DeepSeek only</span></span>` : ""}<span><span class="chip violation">vocabulary violation</span></span></div>
+        <ul class="rubric">
+          <li><b>Correct</b>: every tag fits the abstract and nothing important is missing.</li>
+          <li><b>Partly</b>: the right direction, but a tag is missing, extra, or too broad or too narrow.</li>
+          <li><b>Wrong</b>: the main tag is wrong, or the field is empty when it should not be (or the reverse).</li>
+          <li><b>Can't judge</b>: the abstract does not say enough.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Note on this record</h3>
+        <textarea id="note" placeholder="Anything worth remembering (saved when you leave the box)">${esc(rec.note)}</textarea>
+        <p class="keys"><kbd>1</kbd>–<kbd>4</kbd> verdict on the highlighted row (then moves down) · <kbd>j</kbd>/<kbd>k</kbd> row ·
+          ${ref ? "<kbd>g</kbd>/<kbd>e</kbd>/<kbd>d</kbd> GLM / equal / DeepSeek better · " : ""}<kbd>n</kbd>/<kbd>p</kbd> next / previous record</p>
+      </div>
+    </section></main>`;
+  $("note").addEventListener("blur", (e) => { if (e.target.value !== rec.note) save(rec, "_record", { note: e.target.value }); });
+  document.querySelectorAll("tr[data-row]").forEach((tr) => tr.addEventListener("click", () => { state.row = +tr.dataset.row; highlight(); }));
+  document.querySelectorAll("button[data-v]").forEach((b) => b.addEventListener("click", (e) => {
+    e.stopPropagation(); const f = rec.fields.find((x) => x.field === b.dataset.field);
+    setVerdict(rec, f, f.verdict === b.dataset.v ? "" : b.dataset.v, false);
+  }));
+  document.querySelectorAll("button[data-p]").forEach((b) => b.addEventListener("click", (e) => {
+    e.stopPropagation(); const f = rec.fields.find((x) => x.field === b.dataset.field);
+    setPref(rec, f, f.preference === b.dataset.p ? "" : b.dataset.p);
+  }));
+}
+
+function highlight() {
+  document.querySelectorAll("tr[data-row]").forEach((tr) => tr.classList.toggle("active", +tr.dataset.row === state.row));
+}
+
+async function save(rec, field, extra) {
+  const f = rec.fields.find((x) => x.field === field);
+  const body = { record_id: rec.record_id, cohort: state.cohort, field,
+    verdict: f ? f.verdict : "", preference: f ? f.preference : "", ...extra };
+  const res = await fetch("/api/rating", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(body) });
+  if (!res.ok) { $("saved").textContent = "save failed"; $("saved").style.color = "var(--bad)"; return false; }
+  if (field === "_record") rec.note = extra.note;
+  $("saved").style.color = ""; $("saved").textContent = "saved"; setTimeout(() => { $("saved").textContent = ""; }, 1200);
+  return true;
+}
+
+async function setVerdict(rec, f, v, advance) {
+  if (f.glm === null) return;
+  const before = f.verdict; f.verdict = v;
+  if (!(await save(rec, f.field, {}))) { f.verdict = before; }
+  if (advance) state.row = Math.min(state.row + 1, rec.fields.length - 1);
+  render();
+}
+
+async function setPref(rec, f, p) {
+  const before = f.preference; f.preference = p;
+  if (!(await save(rec, f.field, {}))) { f.preference = before; }
+  render();
+}
+
+function step(dir) {
+  const n = state.records.length;
+  for (let k = 1; k <= n; k++) {
+    const i = state.index + dir * k;
+    if (i < 0 || i >= n) break;
+    if (matches(state.records[i])) { state.index = i; state.row = 0; render(); window.scrollTo(0, 0); return; }
+  }
+  $("saved").style.color = "var(--muted)"; $("saved").textContent = "no more";
+  setTimeout(() => { $("saved").textContent = ""; }, 1200);
+}
+
+document.addEventListener("keydown", (e) => {
+  if (e.target.tagName === "TEXTAREA" || e.target.tagName === "SELECT" || e.metaKey || e.ctrlKey || e.altKey) return;
+  const rec = state.records[state.index]; if (!rec) return;
+  const f = rec.fields[state.row];
+  const vi = ["1", "2", "3", "4"].indexOf(e.key);
+  if (vi >= 0) { setVerdict(rec, f, VERDICTS[vi][0], true); e.preventDefault(); }
+  else if (e.key === "j" || e.key === "ArrowDown") { state.row = Math.min(state.row + 1, rec.fields.length - 1); highlight(); e.preventDefault(); }
+  else if (e.key === "k" || e.key === "ArrowUp") { state.row = Math.max(state.row - 1, 0); highlight(); e.preventDefault(); }
+  else if (e.key === "n" || e.key === "ArrowRight") step(1);
+  else if (e.key === "p" || e.key === "ArrowLeft") step(-1);
+  else if (hasRef() && f.same === false && { g: "glm", e: "equal", d: "deepseek" }[e.key]) setPref(rec, f, { g: "glm", e: "equal", d: "deepseek" }[e.key]);
+});
+$("cohort").addEventListener("change", loadCohort);
+$("prev").addEventListener("click", () => step(-1));
+$("next").addEventListener("click", () => step(1));
+$("unrated").addEventListener("change", () => { if (!matches(state.records[state.index] || {fields: []})) step(1); else render(); });
+$("diverging").addEventListener("change", () => { if (!matches(state.records[state.index] || {fields: []})) step(1); else render(); });
+load();
+</script>
+</body>
+</html>
