@@ -1,0 +1,38 @@
+{
+  "_note": "Pre-registered settings for the GLM-5.3-Flash tag validation. Freeze (commit) this file BEFORE any rating starts; do not edit afterwards.",
+  "cohort": "wave2",
+  "input": "data/input_wave2_250.csv",
+  "events": "runs/e2/events_wave2.csv",
+  "prompt_version": "e2-exp",
+  "prompt_sha256": "c3196ff722d6a817c034afb7278ebf4266707ba64f98d9afbaf4454927f77c45",
+  "seed": 20261116,
+  "n_human": 150,
+  "units": [
+    "domain",
+    "learning_paradigm",
+    "model_family",
+    "model_type",
+    "model_use"
+  ],
+  "primary_units": [
+    "learning_paradigm",
+    "model_family",
+    "model_type",
+    "model_use"
+  ],
+  "acceptable_verdicts": [
+    "correct",
+    "minor"
+  ],
+  "h0_acceptable_rate": 0.8,
+  "target_acceptable_rate": 0.9,
+  "alpha": 0.05,
+  "multiplicity": "holm",
+  "reliability_statistic": "gwet_ac1",
+  "reliability_min": 0.7,
+  "bootstrap_reps": 5000,
+  "judge_model": "claude-opus-5-5",
+  "judge_rater_id": "opus-5-5",
+  "judge_effort": "high",
+  "judge_via": "claude-code-cli (subscription; no Anthropic API key)"
+}

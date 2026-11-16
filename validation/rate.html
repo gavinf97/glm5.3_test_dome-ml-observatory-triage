@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tag Rating</title>
+<style>
+:root {
+  --bg: #f7f7f5; --surface: #ffffff; --surface-2: #f0efeb; --text: #1d1d1b; --muted: #6b6a65;
+  --border: #dddcd6; --accent: #2f5bd3; --accent-soft: #e4ebfb;
+  --ok: #1e7a46; --ok-soft: #dff1e6; --part: #8a6a00; --part-soft: #f8f0d2;
+  --bad: #b3261e; --bad-soft: #f9e0de; --unsure: #5f5f5f; --unsure-soft: #e9e9e9;
+  --sel: #fffbe6; --judge: #a35a00; --judge-soft: #fbeedd;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #161615; --surface: #1f1f1d; --surface-2: #2a2a27; --text: #ecebe6; --muted: #a09f98;
+    --border: #3a3a36; --accent: #8fb0ff; --accent-soft: #24304d;
+    --ok: #6fd39a; --ok-soft: #1c3a28; --part: #e6c65a; --part-soft: #3d3418;
+    --bad: #ff8a80; --bad-soft: #472321; --unsure: #bdbdbd; --unsure-soft: #333;
+    --sel: #2f2c1c; --judge: #f0b062; --judge-soft: #43311a;
+  }
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--text); font: 15px/1.5 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+header { position: sticky; top: 0; z-index: 2; background: var(--surface); border-bottom: 1px solid var(--border);
+  padding: 10px 16px; display: flex; flex-wrap: wrap; gap: 8px 16px; align-items: center; }
+header h1 { font-size: 16px; margin: 0; }
+.mode { font-size: 12px; padding: 2px 8px; border-radius: 10px; background: var(--accent-soft); color: var(--accent); }
+.mode.adj { background: var(--judge-soft); color: var(--judge); }
+select, button, textarea { font: inherit; color: inherit; }
+select, button { background: var(--surface-2); border: 1px solid var(--border); border-radius: 6px; padding: 4px 10px; }
+button { cursor: pointer; } button:hover { border-color: var(--accent); }
+.progress { color: var(--muted); font-variant-numeric: tabular-nums; }
+.bar { width: 160px; height: 6px; background: var(--surface-2); border-radius: 3px; overflow: hidden; display: inline-block; vertical-align: middle; }
+.bar > i { display: block; height: 100%; background: var(--ok); }
+header a { color: var(--accent); font-size: 14px; }
+.spacer { flex: 1; }
+main { max-width: 1400px; margin: 0 auto; padding: 16px; display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 16px; }
+@media (max-width: 1000px) { main { grid-template-columns: minmax(0, 1fr); } }
+.card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 16px; }
+h2 { font-size: 18px; line-height: 1.35; margin: 0 0 6px; }
+.meta { color: var(--muted); font-size: 13px; margin-bottom: 10px; }
+.abstract { white-space: pre-wrap; }
+.unit { border: 1px solid var(--border); border-radius: 8px; padding: 10px 12px; margin-bottom: 10px; }
+.unit.selected { background: var(--sel); border-color: var(--accent); }
+.unit h3 { font-size: 13px; text-transform: uppercase; letter-spacing: .04em; color: var(--muted); margin: 0 0 6px; display: flex; gap: 8px; align-items: center; }
+.unit h3 .done { font-size: 11px; color: var(--ok); text-transform: none; letter-spacing: 0; }
+.tags { display: flex; flex-wrap: wrap; gap: 4px 6px; margin-bottom: 8px; }
+.tier { color: var(--muted); font-size: 12px; margin-right: 2px; }
+.chip { background: var(--surface-2); border: 1px solid var(--border); border-radius: 12px; padding: 1px 9px; font-size: 14px; }
+.empty { color: var(--muted); font-style: italic; font-size: 14px; }
+.verdicts { display: flex; flex-wrap: wrap; gap: 6px; }
+.verdicts button { min-width: 92px; }
+.verdicts button kbd { font-size: 11px; color: var(--muted); margin-right: 4px; }
+.verdicts button.on.correct { background: var(--ok-soft); border-color: var(--ok); color: var(--ok); }
+.verdicts button.on.minor { background: var(--part-soft); border-color: var(--part); color: var(--part); }
+.verdicts button.on.major { background: var(--bad-soft); border-color: var(--bad); color: var(--bad); }
+.verdicts button.on.unsure { background: var(--unsure-soft); border-color: var(--unsure); color: var(--unsure); }
+.codes { display: flex; flex-wrap: wrap; gap: 4px 12px; margin-top: 8px; font-size: 13px; }
+.codes label { display: inline-flex; gap: 4px; align-items: center; cursor: pointer; }
+textarea { width: 100%; margin-top: 8px; min-height: 34px; resize: vertical; background: var(--surface); border: 1px solid var(--border); border-radius: 6px; padding: 6px 8px; font-size: 14px; }
+.second { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 8px; font-size: 13px; }
+.second div { border-radius: 6px; padding: 6px 8px; background: var(--surface-2); }
+.second .who { font-weight: 600; }
+.second .judge .who { color: var(--judge); }
+.nav { display: flex; gap: 8px; justify-content: space-between; margin-top: 12px; align-items: center; }
+.saved { color: var(--ok); font-size: 13px; min-height: 1.2em; }
+.err { color: var(--bad); }
+.help { color: var(--muted); font-size: 12px; }
+</style>
+</head>
+<body>
+<header>
+  <h1>Tag rating</h1>
+  <span id="mode" class="mode"></span>
+  <select id="jump" aria-label="Go to paper"></select>
+  <span class="progress"><span class="bar"><i id="bar" style="width:0%"></i></span> <span id="prog"></span></span>
+  <span class="spacer"></span>
+  <a href="/rubric" target="_blank">Rubric</a>
+  <a href="/tagger-prompt" target="_blank">Tagger's vocabularies &amp; rules</a>
+</header>
+<main>
+  <section class="card" id="paper"></section>
+  <section class="card">
+    <div id="units"></div>
+    <div class="nav">
+      <button id="prev">&larr; Previous</button>
+      <span class="saved" id="saved"></span>
+      <button id="nextUnrated">Next unfinished</button>
+      <button id="next">Next &rarr;</button>
+    </div>
+    <p class="help">Keys: <kbd>1</kbd> correct · <kbd>2</kbd> minor · <kbd>3</kbd> major · <kbd>4</kbd> unsure for the selected unit;
+      <kbd>&uarr;</kbd>/<kbd>&darr;</kbd> select unit; <kbd>&rarr;</kbd> next paper, <kbd>&larr;</kbd> previous, <kbd>n</kbd> next unfinished.
+      Ticks and notes save when you change them.</p>
+  </section>
+</main>
+<script>
+let S = null, idx = 0, sel = 0;
+const $ = id => document.getElementById(id);
+const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+
+function unitsFor(item) {
+  return S.mode === "adjudicate" ? S.units.filter(u => item.adjudicate[u.key]) : S.units;
+}
+function rating(rid, unit) { return (S.ratings[rid] || {})[unit] || {verdict: "", error_codes: "", note: ""}; }
+function paperDone(item) { return unitsFor(item).every(u => rating(item.record_id, u.key).verdict); }
+
+function progress() {
+  const done = S.items.filter(paperDone).length;
+  $("prog").textContent = `${done} / ${S.items.length} papers done`;
+  $("bar").style.width = (S.items.length ? 100 * done / S.items.length : 0) + "%";
+  const opts = S.items.map((it, i) => `<option value="${i}"${i === idx ? " selected" : ""}>${paperDone(it) ? "✓" : "·"} ${i + 1}. ${esc(it.title.slice(0, 70))}</option>`);
+  $("jump").innerHTML = opts.join("");
+}
+
+function tagHtml(item, u) {
+  if (u.fields.length === 1) {
+    const v = item.tags[u.fields[0]];
+    return v.length ? v.map(t => `<span class="chip">${esc(t)}</span>`).join("") : `<span class="empty">[] (none)</span>`;
+  }
+  return u.fields.map((f, i) => {
+    const v = item.tags[f];
+    return `<span class="tier">T${i + 1}</span>` + (v.length ? v.map(t => `<span class="chip">${esc(t)}</span>`).join("") : `<span class="empty">[]</span>`);
+  }).join(" ");
+}
+
+function render() {
+  if (!S.items.length) {
+    $("paper").innerHTML = `<h2>Nothing to ${S.mode === "adjudicate" ? "adjudicate" : "rate"}.</h2>`;
+    $("units").innerHTML = ""; progress(); return;
+  }
+  const it = S.items[idx];
+  $("paper").innerHTML = `<h2>${esc(it.title)}</h2>
+    <div class="meta">${esc(it.journal)}${it.year ? " · " + esc(it.year) : ""} · paper ${idx + 1} of ${S.items.length} · stratum ${esc(it.stratum)}</div>
+    <div class="abstract">${esc(it.abstract)}</div>`;
+  const units = unitsFor(it);
+  if (sel >= units.length) sel = 0;
+  $("units").innerHTML = units.map((u, i) => {
+    const r = rating(it.record_id, u.key);
+    const codes = (r.error_codes || "").split(";").filter(Boolean);
+    let second = "";
+    if (S.mode === "adjudicate") {
+      const p = it.adjudicate[u.key];
+      second = `<div class="second">
+        <div><span class="who">Human:</span> ${esc(p.human.verdict)}${p.human.error_codes ? " (" + esc(p.human.error_codes) + ")" : ""}<br>${esc(p.human.note)}</div>
+        <div class="judge"><span class="who">Opus judge:</span> ${esc(p.judge.verdict)}${p.judge.error_codes ? " (" + esc(p.judge.error_codes) + ")" : ""}<br>${esc(p.judge.note)}</div></div>`;
+    }
+    return `<div class="unit${i === sel ? " selected" : ""}" data-i="${i}" data-unit="${u.key}">
+      <h3>${esc(u.label)}${r.verdict ? '<span class="done">rated</span>' : ""}</h3>
+      <div class="tags">${tagHtml(it, u)}</div>${second}
+      <div class="verdicts">${S.verdicts.map((v, k) => `<button class="${v}${r.verdict === v ? " on" : ""}" data-v="${v}"><kbd>${k + 1}</kbd>${v}</button>`).join("")}</div>
+      <div class="codes"${r.verdict === "minor" || r.verdict === "major" ? "" : ' hidden'}>${Object.entries(S.error_codes).map(([c, d]) =>
+        `<label title="${esc(d)}"><input type="checkbox" data-c="${c}"${codes.includes(c) ? " checked" : ""}> ${c}</label>`).join("")}</div>
+      <textarea placeholder="Note (optional; helpful for minor/major)" data-note>${esc(r.note)}</textarea>
+    </div>`;
+  }).join("");
+  progress();
+}
+
+async function save(unitEl, verdict) {
+  const it = S.items[idx], unit = unitEl.dataset.unit;
+  const cur = rating(it.record_id, unit);
+  verdict = verdict || cur.verdict;
+  if (!verdict) { $("saved").textContent = "Pick a verdict first."; return; }
+  const codes = verdict === "minor" || verdict === "major"
+    ? [...unitEl.querySelectorAll("input[data-c]:checked")].map(x => x.dataset.c) : [];
+  const note = unitEl.querySelector("textarea").value;
+  try {
+    const res = await fetch("/api/rating", {method: "POST", headers: {"Content-Type": "application/json"},
+      body: JSON.stringify({record_id: it.record_id, unit, verdict, error_codes: codes, note})});
+    const out = await res.json();
+    if (!res.ok) throw new Error(out.error || res.status);
+    (S.ratings[it.record_id] ||= {})[unit] = {verdict, error_codes: codes.join(";"), note};
+    $("saved").classList.remove("err"); $("saved").textContent = `Saved ${unit}: ${verdict}`;
+    render();
+  } catch (e) { $("saved").classList.add("err"); $("saved").textContent = "NOT SAVED: " + e.message; }
+}
+
+function go(i) { if (S.items.length) { idx = (i + S.items.length) % S.items.length; sel = 0; render(); window.scrollTo(0, 0); } }
+function nextUnfinished() {
+  for (let k = 1; k <= S.items.length; k++) { const j = (idx + k) % S.items.length; if (!paperDone(S.items[j])) return go(j); }
+  $("saved").textContent = "Every paper is done.";
+}
+
+$("units").addEventListener("click", e => {
+  const unitEl = e.target.closest(".unit"); if (!unitEl) return;
+  sel = +unitEl.dataset.i;
+  const b = e.target.closest("button[data-v]");
+  if (b) save(unitEl, b.dataset.v);
+  else document.querySelectorAll(".unit").forEach((el, i) => el.classList.toggle("selected", i === sel));
+});
+$("units").addEventListener("change", e => {
+  const unitEl = e.target.closest(".unit");
+  if (unitEl && (e.target.matches("input[data-c]") || e.target.matches("textarea"))) save(unitEl);
+});
+$("prev").onclick = () => go(idx - 1);
+$("next").onclick = () => go(idx + 1);
+$("nextUnrated").onclick = nextUnfinished;
+$("jump").onchange = e => go(+e.target.value);
+document.addEventListener("keydown", e => {
+  if (e.target.matches("textarea, input, select") || e.ctrlKey || e.metaKey || e.altKey || !S || !S.items.length) return;
+  const units = document.querySelectorAll(".unit");
+  if (["1", "2", "3", "4"].includes(e.key) && units[sel]) { save(units[sel], S.verdicts[+e.key - 1]); e.preventDefault(); }
+  else if (e.key === "ArrowDown") { sel = Math.min(sel + 1, units.length - 1); render(); e.preventDefault(); }
+  else if (e.key === "ArrowUp") { sel = Math.max(sel - 1, 0); render(); e.preventDefault(); }
+  else if (e.key === "ArrowRight") { go(idx + 1); e.preventDefault(); }
+  else if (e.key === "ArrowLeft") { go(idx - 1); e.preventDefault(); }
+  else if (e.key === "n") { nextUnfinished(); e.preventDefault(); }
+});
+
+(async () => {
+  try {
+    S = await (await fetch("/api/state")).json();
+    $("mode").textContent = S.mode === "adjudicate" ? `adjudicating → consensus (${S.rater} vs judge)` : `rater: ${S.rater}`;
+    if (S.mode === "adjudicate") $("mode").classList.add("adj");
+    const first = S.items.findIndex(it => !paperDone(it));
+    go(first < 0 ? 0 : first);
+  } catch (e) { $("paper").innerHTML = `<p class="err">Could not load: ${esc(e.message)}</p>`; }
+})();
+</script>
+</body>
+</html>

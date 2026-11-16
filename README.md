@@ -45,6 +45,10 @@ Add the billed figure from the Z.ai billing page to `runs/spend_log.csv`.
 
 Everything else (temperature 0, JSON mode, the 16,000-token cap, the input read with `pd.read_csv(dtype=str)`, and resumption) is the production code path.
 
+## Validation (human + Opus 5.5 judge)
+
+Before production, prompt e2 is validated on the untouched `wave2` cohort. A human and Claude Opus 5.5 rate the same papers with one rubric. The judge runs through the Claude Code CLI on a subscription, never the Anthropic API. The study measures inter-rater agreement (Gwet's AC1, kappa), builds an adjudicated consensus, and tests it against a pre-registered bar. See [`validation/README.md`](validation/README.md).
+
 ## Layout
 
 ```
@@ -56,6 +60,7 @@ cohorts/       committed: which records, in which stratum and wave
 runs/          committed: events (tags + rationale), run manifests, spend log
 ratings/       committed: rubric log, append-only
 reports/       committed: agreement and rating summaries
+validation/    committed: pre-registered validation (rubric, rating app, Opus judge, statistics, results)
 data/          NOT committed: input CSVs with titles and abstracts, the DeepSeek reference snapshot
 ```
 
