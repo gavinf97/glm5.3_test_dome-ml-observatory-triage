@@ -1,0 +1,20 @@
+[
+  {
+    "record_id": "eee8378b-6fdc-5952-852c-11157d9861b7",
+    "unit": "model_family",
+    "reason": "Your note says 'active learning not a term'. It IS in the closed model_family vocabulary (\"active learning: the model chooses which new samples or experiments to label or run next\"). Every model_family tag on this paper is in the vocabulary. Re-rate on whether the tags fit the abstract.",
+    "flagged_at": "2026-11-16T21:13:12.911098+00:00"
+  },
+  {
+    "record_id": "eee8378b-6fdc-5952-852c-11157d9861b7",
+    "unit": "model_type",
+    "reason": "Your note says 'dominant set clustering not a term in vocab'. model_type is an OPEN vocabulary: a method that is not in the canonical list is still valid when tagged as the paper names it, so this is not a wrong_term/vocab error. Re-rate on whether the listed models are supported by the abstract.",
+    "flagged_at": "2026-11-16T21:13:12.911098+00:00"
+  },
+  {
+    "record_id": "b714f9c1-6bb4-5595-91c0-e2603d692e48",
+    "unit": "model_type",
+    "reason": "Your note says 'regression tree model absent'. 'Gradient boosting regression tree' is one model: 'gradient boosted trees' and 'GBDT' are listed aliases of the canonical 'gradient boosting'. Re-rate if that changes your view; keep your verdict if you still judge something is missing.",
+    "flagged_at": "2026-11-16T21:13:12.911098+00:00"
+  }
+]

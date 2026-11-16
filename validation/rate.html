@@ -67,6 +67,14 @@ textarea { width: 100%; margin-top: 8px; min-height: 34px; resize: vertical; bac
 .nav { display: flex; gap: 8px; justify-content: space-between; margin-top: 12px; align-items: center; }
 .saved { color: var(--ok); font-size: 13px; min-height: 1.2em; }
 .err { color: var(--bad); }
+.chip.off { background: var(--bad-soft); border: 2px solid var(--bad); color: var(--bad); font-weight: 700; }
+.vcheck { font-size: 12px; margin: -4px 0 8px; }
+.vcheck.ok { color: var(--ok); }
+.vcheck.open { color: var(--muted); }
+.vcheck.bad { color: var(--bad); background: var(--bad-soft); border: 2px solid var(--bad); border-radius: 6px; padding: 6px 8px; font-size: 13px; font-weight: 700; }
+.alias { color: var(--muted); font-size: 12px; margin: -4px 0 8px; }
+.recheck { background: var(--bad-soft); border: 2px solid var(--bad); color: var(--bad); border-radius: 6px; padding: 6px 8px; margin-bottom: 8px; font-size: 13px; }
+.unit.flag { border: 2px solid var(--bad); }
 .help { color: var(--muted); font-size: 12px; }
 </style>
 </head>
@@ -104,24 +112,43 @@ function unitsFor(item) {
   return S.mode === "adjudicate" ? S.units.filter(u => item.adjudicate[u.key]) : S.units;
 }
 function rating(rid, unit) { return (S.ratings[rid] || {})[unit] || {verdict: "", error_codes: "", note: ""}; }
-function paperDone(item) { return unitsFor(item).every(u => rating(item.record_id, u.key).verdict); }
+function recheck(rid, unit) { return ((S.recheck || {})[rid] || {})[unit] || ""; }
+function paperDone(item) { return unitsFor(item).every(u => rating(item.record_id, u.key).verdict && !recheck(item.record_id, u.key)); }
+function vcheckHtml(item, u) {
+  const v = (item.vocab || {})[u.key];
+  if (!v) return "";
+  if (!v.closed) {
+    const canon = Object.entries(v.canonical || {}).map(([t, c]) =>
+      `<b>${esc(t)}</b>${c.aliases ? " = " + esc(c.aliases) : ""}${c.family ? " → " + esc(c.family) : ""}`);
+    return `<div class="vcheck open">Open vocabulary: any named model is valid as the paper names it (canonical spellings preferred). Not a vocab error just because a term is not in the canonical list.</div>`
+      + (canon.length ? `<div class="alias">Canonical terms here and what they cover: ${canon.join("; ")}</div>` : "");
+  }
+  const probs = [];
+  if (v.off.length) probs.push("NOT IN THE CLOSED VOCABULARY: " + v.off.map(esc).join(", "));
+  if (v.over_cap.length) probs.push("OVER THE CAP: " + v.over_cap.map(esc).join("; "));
+  return probs.length ? `<div class="vcheck bad">⚠ ${probs.join(" · ")} → tick <i>vocab</i></div>`
+                      : `<div class="vcheck ok">✓ every term is in the closed vocabulary and within the cap</div>`;
+}
 
 function progress() {
   const done = S.items.filter(paperDone).length;
   $("prog").textContent = `${done} / ${S.items.length} papers done`;
   $("bar").style.width = (S.items.length ? 100 * done / S.items.length : 0) + "%";
-  const opts = S.items.map((it, i) => `<option value="${i}"${i === idx ? " selected" : ""}>${paperDone(it) ? "✓" : "·"} ${i + 1}. ${esc(it.title.slice(0, 70))}</option>`);
+  const flagged = it => Object.keys((S.recheck || {})[it.record_id] || {}).length;
+  const opts = S.items.map((it, i) => `<option value="${i}"${i === idx ? " selected" : ""}>${flagged(it) ? "⚠ RE-CHECK" : paperDone(it) ? "✓" : "·"} ${i + 1}. ${esc(it.title.slice(0, 70))}</option>`);
   $("jump").innerHTML = opts.join("");
 }
 
 function tagHtml(item, u) {
+  const off = new Set(((item.vocab || {})[u.key] || {}).off || []);
+  const chip = t => off.has(t) ? `<span class="chip off" title="Not in the closed vocabulary">✗ ${esc(t)}</span>` : `<span class="chip">${esc(t)}</span>`;
   if (u.fields.length === 1) {
     const v = item.tags[u.fields[0]];
-    return v.length ? v.map(t => `<span class="chip">${esc(t)}</span>`).join("") : `<span class="empty">[] (none)</span>`;
+    return v.length ? v.map(chip).join("") : `<span class="empty">[] (none)</span>`;
   }
   return u.fields.map((f, i) => {
     const v = item.tags[f];
-    return `<span class="tier">T${i + 1}</span>` + (v.length ? v.map(t => `<span class="chip">${esc(t)}</span>`).join("") : `<span class="empty">[]</span>`);
+    return `<span class="tier">T${i + 1}</span>` + (v.length ? v.map(chip).join("") : `<span class="empty">[]</span>`);
   }).join(" ");
 }
 
@@ -146,9 +173,11 @@ function render() {
         <div><span class="who">Human:</span> ${esc(p.human.verdict)}${p.human.error_codes ? " (" + esc(p.human.error_codes) + ")" : ""}<br>${esc(p.human.note)}</div>
         <div class="judge"><span class="who">Opus judge:</span> ${esc(p.judge.verdict)}${p.judge.error_codes ? " (" + esc(p.judge.error_codes) + ")" : ""}<br>${esc(p.judge.note)}</div></div>`;
     }
-    return `<div class="unit${i === sel ? " selected" : ""}" data-i="${i}" data-unit="${u.key}">
-      <h3>${esc(u.label)}${r.verdict ? '<span class="done">rated</span>' : ""}</h3>
-      <div class="tags">${tagHtml(it, u)}</div>${second}
+    const rc = recheck(it.record_id, u.key);
+    return `<div class="unit${i === sel ? " selected" : ""}${rc ? " flag" : ""}" data-i="${i}" data-unit="${u.key}">
+      <h3>${esc(u.label)}${r.verdict && !rc ? '<span class="done">rated</span>' : ""}</h3>
+      ${rc ? `<div class="recheck"><b>RE-CHECK:</b> ${esc(rc)}<br><i>Click a verdict again (same or new) to clear this.</i></div>` : ""}
+      <div class="tags">${tagHtml(it, u)}</div>${vcheckHtml(it, u)}${second}
       <div class="verdicts">${S.verdicts.map((v, k) => `<button class="${v}${r.verdict === v ? " on" : ""}" data-v="${v}"><kbd>${k + 1}</kbd>${v}</button>`).join("")}</div>
       <div class="codes"${r.verdict === "minor" || r.verdict === "major" ? "" : ' hidden'}>${Object.entries(S.error_codes).map(([c, d]) =>
         `<label title="${esc(d)}"><input type="checkbox" data-c="${c}"${codes.includes(c) ? " checked" : ""}> ${c}</label>`).join("")}</div>
@@ -172,6 +201,7 @@ async function save(unitEl, verdict) {
     const out = await res.json();
     if (!res.ok) throw new Error(out.error || res.status);
     (S.ratings[it.record_id] ||= {})[unit] = {verdict, error_codes: codes.join(";"), note};
+    if (S.recheck && S.recheck[it.record_id]) delete S.recheck[it.record_id][unit];
     $("saved").classList.remove("err"); $("saved").textContent = `Saved ${unit}: ${verdict}`;
     render();
   } catch (e) { $("saved").classList.add("err"); $("saved").textContent = "NOT SAVED: " + e.message; }

@@ -1,0 +1,29 @@
+{
+  "exported_utc": "2026-11-05T11:40:30.771537+00:00",
+  "cohort": "heldout250",
+  "seed": 20261105,
+  "purpose": "held-out evaluation of the EXPERIMENTAL e2 prompt; no overlap with wave1, wave2 or enriched100",
+  "source": "triage repository local landscape exports (offline, read-only)",
+  "source_sha256": {
+    "mongo_landscape_export/output/incoming_new_documents.jsonl": "e830d069283c9953ec2174bc47429df22f343890d9c5f3671a51b001507110be",
+    "mongo_landscape_export/output/incoming_catchup_documents.jsonl": "2acf426d9827712d5e0ea4e02f0dbff78f829197b99047b06f08efaaa8407e2a"
+  },
+  "counts": {
+    "positive": 7097,
+    "excluded_seen": 104,
+    "excluded_no_text": 0,
+    "eligible": 6993,
+    "selected": 250
+  },
+  "floor_per_stratum": 10,
+  "venue_cap": 2,
+  "strata": {
+    "2023-2024|article": 4,
+    "2025-2026|article": 220,
+    "2025-2026|preprint": 19,
+    "unknown|article": 7
+  },
+  "with_mesh": 96,
+  "distinct_venues": 185,
+  "overlap_with_earlier_cohorts": 0
+}

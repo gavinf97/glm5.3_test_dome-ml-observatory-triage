@@ -1,0 +1,251 @@
+record_id,cohort,stratum,year,journal,preprint_server,epmc_source,doi,pmid,pmcid,source_file
+3e3d3d3b-49de-5439-a875-93144c3aa6d7,heldout250,2023-2024|article,2024,Proceedings. International Conference on Advanced Information Networking and Applications,,MED,10.1007/978-3-031-57870-0_24,42688602,PMC13536174,incoming_new_documents.jsonl
+e8934d9d-3ec5-57d1-a546-46a85c05217f,heldout250,2023-2024|article,2024,Proceedings. International Conference on Advanced Information Networking and Applications,,MED,10.1007/978-3-031-57942-4_39,42694727,PMC13539539,incoming_new_documents.jsonl
+437a3c3b-31db-56b3-9171-0e0895fd2e84,heldout250,2023-2024|article,2023,... International Conference on Learning Representations,,MED,,42683346,PMC13532314,incoming_new_documents.jsonl
+a31d3b97-c37a-549e-98cd-5e0df67fea05,heldout250,2023-2024|article,2024,"The 6th International Conference on Wireless, Intelligent and Distributed Environment for Communication : WIDECOM 2023 : International Conference on Wireless, Intelligent and Distributed Environment for Communication, St. Catharines, ON...",,MED,10.1007/978-3-031-47126-1_13,42713144,PMC13552444,incoming_new_documents.jsonl
+f91ae58c-3345-51ca-91c0-c9a6de6df5c4,heldout250,2025-2026|article,2026,Scientific reports,,MED,10.1038/s41598-026-54547-4,42209590,PMC13451349,incoming_catchup_documents.jsonl
+d37611bb-0a19-52d8-becb-c1d541f780bf,heldout250,2025-2026|article,2026,Frontiers in psychiatry,,MED,10.3389/fpsyt.2026.1783381,42694651,PMC13539309,incoming_new_documents.jsonl
+a4a24056-61cf-523f-9068-60c209365219,heldout250,2025-2026|article,2026,NPJ digital medicine,,MED,10.1038/s41746-026-02683-6,42062447,PMC13338237,incoming_catchup_documents.jsonl
+c0459914-0596-5a01-b8bf-69a6922e82b6,heldout250,2025-2026|article,2026,Frontiers in psychology,,MED,10.3389/fpsyg.2026.1807621,42421733,PMC13341927,incoming_catchup_documents.jsonl
+07be7ccf-f062-51c7-81c5-1363a2580c7a,heldout250,2025-2026|article,2026,Frontiers in psychology,,MED,10.3389/fpsyg.2026.1734974,42724039,PMC13558142,incoming_catchup_documents.jsonl
+ddf5f17c-f62d-5e6e-ae93-ed378d21cc01,heldout250,2025-2026|article,2026,Chemical research in toxicology,,MED,10.1021/acs.chemrestox.6c00065,42324899,PMC13390030,incoming_catchup_documents.jsonl
+6e0a68c8-87a6-5368-961e-6909cb6f4391,heldout250,2025-2026|article,2026,Quantitative imaging in medicine and surgery,,MED,10.21037/qims-2026-0779,42701493,PMC13545612,incoming_new_documents.jsonl
+e56776c0-7511-5a13-a4fd-ca84419935b9,heldout250,2025-2026|article,2026,Frontiers in psychiatry,,MED,10.3389/fpsyt.2026.1887016,42500317,PMC13396167,incoming_catchup_documents.jsonl
+4fa55c03-1f76-50c7-a46d-82cb84c339c9,heldout250,2025-2026|article,2026,Journal of inflammation research,,MED,10.2147/jir.s633770,42707758,PMC13549397,incoming_new_documents.jsonl
+b58c33bc-1c0a-52c7-9ab6-6eced49d846e,heldout250,2025-2026|article,2026,Journal of visualized experiments : JoVE,,MED,10.3791/72165,42714037,,incoming_new_documents.jsonl
+6a081fd5-ead0-5f41-a803-4f197d9785dc,heldout250,2025-2026|article,2026,Frontiers in immunology,,MED,10.3389/fimmu.2026.1883360,42712399,PMC13549910,incoming_new_documents.jsonl
+9126c7b0-806b-58ca-ae13-d2703a19666c,heldout250,2025-2026|article,2026,Neural networks : the official journal of the International Neural Network Society,,MED,10.1016/j.neunet.2026.109327,42401174,,incoming_catchup_documents.jsonl
+92dd72de-1c98-588f-82b1-beea4d8c3920,heldout250,2025-2026|article,2026,Nature communications,,MED,10.1038/s41467-026-74575-y,42373625,PMC13482823,incoming_catchup_documents.jsonl
+55fc51e6-cce0-59ce-8027-8907bc4422f7,heldout250,2025-2026|article,2026,Frontiers in cellular and infection microbiology,,MED,10.3389/fcimb.2026.1797806,42528565,PMC13414258,incoming_catchup_documents.jsonl
+c7233a56-287e-5fcc-8afe-e0b1f7f959dd,heldout250,2025-2026|article,2026,Journal of translational medicine,,MED,10.1186/s12967-026-08496-1,42323666,PMC13548529,incoming_catchup_documents.jsonl
+26a08b68-2968-5e02-b23f-9454bfea0738,heldout250,2025-2026|article,2026,Scientific reports,,MED,10.1038/s41598-026-57833-3,42297882,PMC13529734,incoming_catchup_documents.jsonl
+3f8e58e3-d7fc-536e-9d7e-d2b5f4f4716b,heldout250,2025-2026|article,2026,"Bioinformatics (Oxford, England)",,MED,10.1093/bioinformatics/btag556,42502984,PMC13457084,incoming_catchup_documents.jsonl
+22a33843-3246-5868-b4a6-3a24e59c5e9f,heldout250,2025-2026|article,2026,Food chemistry: X,,MED,10.1016/j.fochx.2026.104355,42713163,PMC13551888,incoming_new_documents.jsonl
+4e3d0da8-baa7-5ccb-accd-7ca53b157a13,heldout250,2025-2026|article,2026,Frontiers in cellular and infection microbiology,,MED,10.3389/fcimb.2026.1894249,42707105,PMC13547089,incoming_new_documents.jsonl
+7c163cb7-ec06-5ed6-9560-8b6518f6dfe7,heldout250,2025-2026|article,2026,"Materials (Basel, Switzerland)",,MED,10.3390/ma19173769,42738205,,incoming_new_documents.jsonl
+46032b85-dfd8-508a-9d7e-7897a9508847,heldout250,2025-2026|article,2026,"Frontiers in pain research (Lausanne, Switzerland)",,MED,10.3389/fpain.2026.1824864,42724022,PMC13558419,incoming_catchup_documents.jsonl
+c60f338e-2125-5e5c-9a7c-fe4cccef79ae,heldout250,2025-2026|article,2026,Journal of Indian Society of Periodontology,,MED,10.4103/jisp.jisp_566_25,42598314,PMC13472465,incoming_catchup_documents.jsonl
+366200aa-1a98-5b31-9706-53c5a9e54e32,heldout250,2025-2026|article,2026,"Sensors (Basel, Switzerland)",,MED,10.3390/s26154977,42590752,PMC13468838,incoming_catchup_documents.jsonl
+dd23b32f-1f73-5ef5-9d8f-ec0a957e33c2,heldout250,2025-2026|article,2026,Anais da Academia Brasileira de Ciencias,,MED,10.1590/0001-3765202620250727,42715463,,incoming_new_documents.jsonl
+0f1cfac6-7197-5d2a-bd13-fb8f61219298,heldout250,2025-2026|article,2026,Nature communications,,MED,10.1038/s41467-026-74122-9,42297825,PMC13444143,incoming_catchup_documents.jsonl
+ca794c63-3838-5aa2-8d91-39f3de3826b7,heldout250,2025-2026|article,2026,Frontiers in bioinformatics,,MED,10.3389/fbinf.2026.1906036,42639087,PMC13500579,incoming_catchup_documents.jsonl
+e753bb28-0fc6-52e3-b154-35b8eeecf565,heldout250,2025-2026|article,2026,International journal of environmental research and public health,,MED,10.3390/ijerph23081087,42652402,PMC13512648,incoming_catchup_documents.jsonl
+9fb3a045-0903-520b-8da8-7f2b0fc49cc2,heldout250,2025-2026|article,2026,PloS one,,MED,10.1371/journal.pone.0344857,42531215,PMC13422887,incoming_catchup_documents.jsonl
+759b871e-e347-5c39-8a9c-566430745171,heldout250,2025-2026|article,2026,The oncologist,,MED,10.1093/oncolo/oyag261,42423293,PMC13489705,incoming_catchup_documents.jsonl
+8a94510d-0b5d-54b8-9b73-ae911bdfaa8c,heldout250,2025-2026|article,2026,Statistics in medicine,,MED,10.1002/sim.70701,42619596,PMC13491306,incoming_catchup_documents.jsonl
+783a353d-31f0-574f-bfc7-7ecadb6b899e,heldout250,2025-2026|article,2026,Analytica chimica acta,,MED,10.1016/j.aca.2026.346062,42702475,,incoming_new_documents.jsonl
+88077aa3-81ec-5bf4-8238-564d78c919bc,heldout250,2025-2026|article,2026,PloS one,,MED,10.1371/journal.pone.0353489,42520065,PMC13412056,incoming_catchup_documents.jsonl
+06472e68-39e3-5ed6-bb64-a4127bef5c0c,heldout250,2025-2026|article,2026,Frontiers in computational neuroscience,,MED,10.3389/fncom.2026.1845838,42666383,PMC13522119,incoming_catchup_documents.jsonl
+b17a9271-647d-5649-b548-2d1b7feda8b4,heldout250,2025-2026|article,2026,Frontiers in oncology,,MED,10.3389/fonc.2026.1912193,42625604,PMC13489846,incoming_catchup_documents.jsonl
+bdff9866-230b-5c88-9924-b021564e3d23,heldout250,2025-2026|article,2026,Frontiers in endocrinology,,MED,10.3389/fendo.2026.1913869,42724904,PMC13559705,incoming_catchup_documents.jsonl
+053b74f9-a299-591d-8ce8-bd95b84dc251,heldout250,2025-2026|article,2026,Epilepsia open,,MED,10.1002/epi4.70300,42390713,PMC13394023,incoming_catchup_documents.jsonl
+7e5c6e44-6f81-5afc-8fe9-fa2825674a3e,heldout250,2025-2026|article,2026,International journal of molecular sciences,,MED,10.3390/ijms27177811,42737708,,incoming_catchup_documents.jsonl
+4c1870d3-f3da-50e1-971e-d96725014dbe,heldout250,2025-2026|article,2026,European heart journal. Digital health,,MED,10.1093/ehjdh/ztag140,42719259,PMC13556451,incoming_new_documents.jsonl
+dabc0d60-073a-52ae-b966-f0023133df1b,heldout250,2025-2026|article,2026,Frontiers in oncology,,MED,10.3389/fonc.2026.1901904,42729261,PMC13561835,incoming_catchup_documents.jsonl
+3eb4bb50-13c8-54c3-ace1-35ee90119002,heldout250,2025-2026|article,2026,Discover nano,,MED,10.1186/s11671-026-04815-z,42545551,PMC13433702,incoming_catchup_documents.jsonl
+882fc714-0a9a-516e-b57b-701b6049c5bb,heldout250,2025-2026|article,2026,Journal of nanobiotechnology,,MED,10.1186/s12951-026-04474-3,42231281,PMC13495479,incoming_catchup_documents.jsonl
+a3fecb70-ddd8-5039-ada7-0b4db7a8770c,heldout250,2025-2026|article,2026,FASEB journal : official publication of the Federation of American Societies for Experimental Biology,,MED,10.1096/fj.202504633rr,42475331,PMC13384267,incoming_catchup_documents.jsonl
+8384f7cb-a54d-5072-bf2c-efbb0d53af91,heldout250,2025-2026|article,2026,Biology,,MED,10.3390/biology15161344,42651649,PMC13509854,incoming_catchup_documents.jsonl
+7e8a428d-5335-59dd-9f65-ba7794a25910,heldout250,2025-2026|article,2026,Communications medicine,,MED,10.1038/s43856-026-01645-z,42204244,PMC13493922,incoming_catchup_documents.jsonl
+a257f5e6-5545-59f6-b65e-9aa44eebca67,heldout250,2025-2026|article,2026,Quantitative imaging in medicine and surgery,,MED,10.21037/qims-2025-1-2768,42433581,PMC13350678,incoming_catchup_documents.jsonl
+3cb20992-228a-5c43-b385-0efb9793a47d,heldout250,2025-2026|article,2026,"Methods (San Diego, Calif.)",,MED,10.1016/j.ymeth.2026.07.002,42409087,PMC13480213,incoming_catchup_documents.jsonl
+0ba84c92-7bce-57af-8fa9-40f74aae9037,heldout250,2025-2026|article,2026,Cancer imaging : the official publication of the International Cancer Imaging Society,,MED,10.1186/s40644-026-01103-y,42698112,PMC13545761,incoming_new_documents.jsonl
+341256bb-442a-5217-9c97-f90dce45a314,heldout250,2025-2026|article,2026,"Healthcare (Basel, Switzerland)",,MED,10.3390/healthcare14172777,42736934,,incoming_catchup_documents.jsonl
+8690c183-ddb5-55a7-b7df-e5f4917de552,heldout250,2025-2026|article,2026,Frontiers in pharmacology,,MED,10.3389/fphar.2026.1836330,42729108,PMC13561806,incoming_catchup_documents.jsonl
+de49823b-4682-5de9-8f97-f4879a7a0137,heldout250,2025-2026|article,2026,BMC anesthesiology,,MED,10.1186/s12871-026-04156-5,42698099,PMC13543417,incoming_new_documents.jsonl
+672c07d1-8c3c-5ce7-a0fc-f3a3ec04811a,heldout250,2025-2026|article,2026,Digital health,,MED,10.1177/20552076261486988,42719465,PMC13554613,incoming_catchup_documents.jsonl
+843d3715-bd36-5f3e-b79b-383a09519d7e,heldout250,2025-2026|article,2026,International journal of cardiology,,MED,10.1016/j.ijcard.2026.134759,42700846,,incoming_new_documents.jsonl
+5e60c3b5-dc94-5147-b5c7-6ac00240268d,heldout250,2025-2026|article,2026,BMC plant biology,,MED,10.1186/s12870-026-08960-6,42192298,PMC13393842,incoming_catchup_documents.jsonl
+bf0ab919-073c-5616-9720-587950e7b9af,heldout250,2025-2026|article,2026,Frontiers in medicine,,MED,10.3389/fmed.2026.1803579,42445159,PMC13357581,incoming_catchup_documents.jsonl
+4e9525d3-11db-5550-95f6-34e005a07ff8,heldout250,2025-2026|article,2026,Molecular informatics,,MED,10.1002/minf.70051,42661439,PMC13522730,incoming_catchup_documents.jsonl
+1e2c12f5-6b70-5b71-be6e-336f33db7c3f,heldout250,2025-2026|article,2026,Journal of nursing management,,MED,10.1155/jonm/6257117,42717505,PMC13559007,incoming_new_documents.jsonl
+3e12c129-105f-555f-be83-c13708f38b5b,heldout250,2025-2026|article,2026,Frontiers in neuroscience,,MED,10.3389/fnins.2026.1930294,42643552,PMC13503574,incoming_catchup_documents.jsonl
+223cce16-6ccc-5e28-b1ac-3d5bd7320770,heldout250,2025-2026|article,2026,Journal of Crohn's & colitis,,MED,10.1093/ecco-jcc/jjag122,42611818,PMC13484516,incoming_catchup_documents.jsonl
+fc31927b-e51e-52d7-ab83-f013be10789a,heldout250,2025-2026|article,2026,Journal of the American College of Cardiology,,MED,10.1016/j.jacc.2025.12.038,41670561,PMC13464091,incoming_catchup_documents.jsonl
+1f32caf2-7f5b-5177-b4ab-eba2a688b120,heldout250,2025-2026|article,2026,Cancer cell international,,MED,10.1186/s12935-026-04315-1,42104358,PMC13430702,incoming_catchup_documents.jsonl
+7676e93c-034f-5d7c-90b6-f9fa6e26c5dc,heldout250,2025-2026|article,2026,"Bioinformatics (Oxford, England)",,MED,10.1093/bioinformatics/btag481,42386696,PMC13384051,incoming_catchup_documents.jsonl
+addf5c2e-9750-59d4-95f9-2ac162de2b74,heldout250,2025-2026|article,2026,"Materials (Basel, Switzerland)",,MED,10.3390/ma19143089,42513824,PMC13413963,incoming_catchup_documents.jsonl
+4bd209cf-2f4f-50d6-bd63-8b3e1fbe18be,heldout250,2025-2026|article,2026,"Sensors (Basel, Switzerland)",,MED,10.3390/s26165310,42655618,PMC13517938,incoming_catchup_documents.jsonl
+35bfecd3-ea29-5c7f-917d-bc087a4062d3,heldout250,2025-2026|article,2026,International journal of environmental research and public health,,MED,10.3390/ijerph23070895,42512199,PMC13410725,incoming_catchup_documents.jsonl
+8a93eaec-caa5-5280-aa09-eaa6d90437da,heldout250,2025-2026|article,2026,International journal of molecular sciences,,MED,10.3390/ijms27167196,42653201,PMC13513052,incoming_catchup_documents.jsonl
+14e48126-b771-5dad-8e3f-4030ff0b6f3e,heldout250,2025-2026|article,2026,Journal of medical Internet research,,MED,10.2196/85403,42475675,PMC13434253,incoming_catchup_documents.jsonl
+91cc77ad-05f9-58e0-a404-d5aa6a025e84,heldout250,2025-2026|article,2026,Alzheimer's & dementia : the journal of the Alzheimer's Association,,MED,10.1002/alz.71818,42712106,PMC13554967,incoming_new_documents.jsonl
+b1f3f9a9-5fcf-5cc8-8930-3f8d0d62ba37,heldout250,2025-2026|article,2026,Aging brain,,MED,10.1016/j.nbas.2026.100164,42571539,PMC13452397,incoming_catchup_documents.jsonl
+428b1603-960f-5b56-ab23-875d22a35543,heldout250,2025-2026|article,2026,Nature methods,,MED,10.1038/s41592-026-03194-8,42637977,PMC13541621,incoming_catchup_documents.jsonl
+23043264-6339-58ea-b7d2-b31bec5356dd,heldout250,2025-2026|article,2026,Analytica chimica acta,,MED,10.1016/j.aca.2026.345986,42702424,,incoming_new_documents.jsonl
+76baecdf-5895-5aa2-9d49-55a38dcec76f,heldout250,2025-2026|article,2026,"Biomimetics (Basel, Switzerland)",,MED,10.3390/biomimetics11080547,42645267,PMC13509341,incoming_catchup_documents.jsonl
+87cc6bda-b81a-55ed-9c12-0cac5198c2ca,heldout250,2025-2026|article,2026,Anaesthesia,,MED,10.1111/anae.70261,42249633,PMC13551139,incoming_catchup_documents.jsonl
+d124258a-329d-5025-afea-360c24451ff3,heldout250,2025-2026|article,2026,Annals of medicine,,MED,10.1080/07853890.2026.2703417,42495950,PMC13403358,incoming_catchup_documents.jsonl
+7fe5b248-fef7-5312-9d9d-c835673084ba,heldout250,2025-2026|article,2026,JAMA network open,,MED,10.1001/jamanetworkopen.2026.28846,42593794,PMC13474041,incoming_catchup_documents.jsonl
+d00d69b9-1fa3-5084-8e0f-b5b0e7139375,heldout250,2025-2026|article,2026,BMC health services research,,MED,10.1186/s12913-026-14781-y,42260481,PMC13474756,incoming_catchup_documents.jsonl
+4ad3d4cc-4a64-5776-89c2-536f071e8aae,heldout250,2025-2026|article,2026,Briefings in bioinformatics,,MED,10.1093/bib/bbag445,42617151,PMC13489391,incoming_catchup_documents.jsonl
+512b9140-397f-5696-b8fa-42f15ba4987b,heldout250,2025-2026|article,2026,"Brain, behavior, & immunity - health",,MED,10.1016/j.bbih.2026.101336,42718635,PMC13553569,incoming_catchup_documents.jsonl
+e5f568d0-5ee7-530a-bf1f-f1d1458b1c3e,heldout250,2025-2026|article,2026,Genes,,MED,10.3390/genes17080865,42650058,PMC13512668,incoming_catchup_documents.jsonl
+fdf2e20e-f9bd-5ca1-8db5-11b20b270075,heldout250,2025-2026|article,2026,Frontiers in molecular neuroscience,,MED,10.3389/fnmol.2026.1844343,42712579,PMC13550177,incoming_new_documents.jsonl
+0eac774b-f924-597b-be1f-4ae173ba2c86,heldout250,2025-2026|article,2026,Frontiers in neurorobotics,,MED,10.3389/fnbot.2026.1884626,42534837,PMC13422378,incoming_catchup_documents.jsonl
+3403c647-ec25-5354-88fe-9f49e6ae43fe,heldout250,2025-2026|article,2026,Frontiers in medicine,,MED,10.3389/fmed.2026.1844808,42630171,PMC13493228,incoming_catchup_documents.jsonl
+3744ef1a-9dde-58ae-ac5d-b5fe23f235df,heldout250,2025-2026|article,2026,Journal of dental sciences,,MED,10.1016/j.jds.2025.07.3546,42689036,PMC13536379,incoming_new_documents.jsonl
+0865ac4a-83ad-5a38-93a0-3a0bcc51de55,heldout250,2025-2026|article,2026,Frontiers in radiology,,MED,10.3389/fradi.2026.1829853,42459257,PMC13368798,incoming_catchup_documents.jsonl
+6a136b77-d838-592e-83e3-bdcafb973f9b,heldout250,2025-2026|article,2026,"Biomimetics (Basel, Switzerland)",,MED,10.3390/biomimetics11070455,42505488,PMC13406808,incoming_catchup_documents.jsonl
+f0b041e5-2172-5afc-a2ec-658088c31933,heldout250,2025-2026|article,2026,Journal of translational medicine,,MED,10.1186/s12967-026-08375-9,42260568,PMC13474844,incoming_catchup_documents.jsonl
+305b6ac6-bd50-5501-95ac-086e809743a6,heldout250,2025-2026|article,2026,Journal of dental sciences,,MED,10.1016/j.jds.2025.10.032,42688554,PMC13535950,incoming_new_documents.jsonl
+48d2c58f-e536-53cc-a882-f4ae51759758,heldout250,2025-2026|article,2026,"Advanced science (Weinheim, Baden-Wurttemberg, Germany)",,MED,10.1002/advs.202600008,42284516,PMC13336913,incoming_catchup_documents.jsonl
+7ea19a2b-2b68-59d3-b080-c07ceb67752f,heldout250,2025-2026|article,2026,"Endocrine, metabolic & immune disorders drug targets",,MED,10.2174/0118715303420035251023051847,41487007,PMC13334262,incoming_catchup_documents.jsonl
+4042e8ef-f8d6-5af2-8282-cbc9ace9309e,heldout250,2025-2026|article,2026,Frontiers in neurology,,MED,10.3389/fneur.2026.1868821,42688052,PMC13533805,incoming_new_documents.jsonl
+75cf0905-03e8-5cc8-822c-237d35e7791e,heldout250,2025-2026|article,2026,Neural networks : the official journal of the International Neural Network Society,,MED,10.1016/j.neunet.2026.109571,42697024,,incoming_new_documents.jsonl
+83a2278f-853d-57ee-a767-4f26f5c564e4,heldout250,2025-2026|article,2026,NPJ digital medicine,,MED,10.1038/s41746-026-02831-y,42249085,PMC13562539,incoming_catchup_documents.jsonl
+db45e0ba-e091-5076-ac12-9d7264df07c5,heldout250,2025-2026|article,2026,Frontiers in plant science,,MED,10.3389/fpls.2026.1858197,42494626,PMC13391865,incoming_catchup_documents.jsonl
+079699dc-6080-5afb-b61f-e26bfeb3b5fd,heldout250,2025-2026|article,2026,Cancer medicine,,MED,10.1002/cam4.72182,42576414,PMC13458035,incoming_catchup_documents.jsonl
+e593b9f9-f642-52d7-b59f-6208bdc7b159,heldout250,2025-2026|article,2026,Clinical and translational allergy,,MED,10.1002/clt2.70202,42728233,PMC13569465,incoming_catchup_documents.jsonl
+e16eb2d7-f54e-5eed-8dfb-6c17d34fae28,heldout250,2025-2026|article,2026,BMC medical genomics,,MED,10.1186/s12920-026-02405-7,42218517,PMC13435517,incoming_catchup_documents.jsonl
+8b888bf3-708b-5221-b091-3abf73b27adb,heldout250,2025-2026|article,2026,ACS sensors,,MED,10.1021/acssensors.6c02096,42696700,,incoming_new_documents.jsonl
+7934bc16-7217-59ed-b8ad-3472f0884c6c,heldout250,2025-2026|article,2026,BMC medical informatics and decision making,,MED,10.1186/s12911-026-03639-2,42304329,PMC13523362,incoming_catchup_documents.jsonl
+53cc4d45-0a9b-5932-a9d5-772cf3dc6060,heldout250,2025-2026|article,2026,BMC medical research methodology,,MED,10.1186/s12874-026-02909-x,42288763,PMC13495251,incoming_catchup_documents.jsonl
+7265ffd4-a5ad-520f-ac23-8d7b01c38831,heldout250,2025-2026|article,2026,Science progress,,MED,10.1177/00368504261459906,42704781,PMC13554620,incoming_new_documents.jsonl
+f262f6e3-e535-5a3b-9ca0-f07c0f3ff21c,heldout250,2025-2026|article,2026,Medical image analysis,,MED,10.1016/j.media.2026.104263,42685438,,incoming_new_documents.jsonl
+4f8f3a89-88ed-585b-98e3-2122ff7522ba,heldout250,2025-2026|article,2026,Discover oncology,,MED,10.1007/s12672-026-05250-3,42231004,PMC13442774,incoming_catchup_documents.jsonl
+dfb9e69a-534f-53de-9807-0032d7b24646,heldout250,2025-2026|article,2026,Nature,,MED,10.1038/s41586-026-10759-2,42420457,PMC13391382,incoming_catchup_documents.jsonl
+e39d3c8c-c3af-52c3-bfcf-bbd6a6d07fb8,heldout250,2025-2026|article,2026,Journal of clinical laboratory analysis,,MED,10.1002/jcla.70299,42590911,PMC13469782,incoming_catchup_documents.jsonl
+79be1008-d36b-57a1-be6a-c50d1f34a005,heldout250,2025-2026|article,2026,Ophthalmology science,,MED,10.1016/j.xops.2026.101355,42733770,PMC13571539,incoming_catchup_documents.jsonl
+6f1d564d-7a20-5066-a92a-fa483921c0a6,heldout250,2025-2026|article,2026,"Diagnostics (Basel, Switzerland)",,MED,10.3390/diagnostics16152443,42587680,PMC13465401,incoming_catchup_documents.jsonl
+dc6608e9-9dee-5800-8d2f-1fbd44829db4,heldout250,2025-2026|article,2026,Journal of pathology informatics,,MED,10.1016/j.jpi.2026.100699,42668513,PMC13524623,incoming_catchup_documents.jsonl
+b54e06ef-af3b-5513-9c29-509d116f1d89,heldout250,2025-2026|article,2026,PLoS computational biology,,MED,10.1371/journal.pcbi.1014771,42691128,PMC13568523,incoming_new_documents.jsonl
+84894e6d-ce42-5b2b-9332-352e09a2bb6a,heldout250,2025-2026|article,2026,The journal of physical chemistry letters,,MED,10.1021/acs.jpclett.6c02446,42691359,,incoming_new_documents.jsonl
+d54aa10a-49a4-589e-899d-35ab9d6025e1,heldout250,2025-2026|article,2026,"G3 (Bethesda, Md.)",,MED,10.1093/g3journal/jkag193,42466628,PMC13535375,incoming_catchup_documents.jsonl
+aad377be-d357-5c8e-b1fb-add4cc6bbba2,heldout250,2025-2026|article,2026,Biochemistry and biophysics reports,,MED,10.1016/j.bbrep.2026.102720,42494422,PMC13393702,incoming_catchup_documents.jsonl
+29097064-72c6-5594-9c1d-eb52eb32f1aa,heldout250,2025-2026|article,2026,"Antibiotics (Basel, Switzerland)",,MED,10.3390/antibiotics15070666,42505629,PMC13405834,incoming_catchup_documents.jsonl
+8595059b-9b27-5290-bc7f-3f3c5c4515d4,heldout250,2025-2026|article,2026,Frontiers in public health,,MED,10.3389/fpubh.2026.1862167,42518572,PMC13381439,incoming_catchup_documents.jsonl
+de4661ba-145f-50b8-8f4b-298d39f7b649,heldout250,2025-2026|article,2026,BMC medical imaging,,MED,10.1186/s12880-026-02443-8,42163131,PMC13390417,incoming_catchup_documents.jsonl
+98bb3c6d-40e4-5926-b1f7-9ab9dd18c24f,heldout250,2025-2026|article,2026,"Nanomaterials (Basel, Switzerland)",,MED,10.3390/nano16171082,42726558,PMC13567297,incoming_catchup_documents.jsonl
+3569cd58-9aa6-5fdd-94f2-0a6ad743426d,heldout250,2025-2026|article,2026,PLOS digital health,,MED,10.1371/journal.pdig.0001667,42726793,PMC13567808,incoming_new_documents.jsonl
+5f93b8ca-c6a2-573d-9029-9f83fe8349e0,heldout250,2025-2026|article,2026,Marine pollution bulletin,,MED,10.1016/j.marpolbul.2026.120348,42721724,,incoming_new_documents.jsonl
+e2d15d70-9ece-51ce-9c79-2b071e43a4eb,heldout250,2025-2026|article,2026,Frontiers in genetics,,MED,10.3389/fgene.2026.1835653,42733733,PMC13571821,incoming_catchup_documents.jsonl
+97899b42-6a22-5ae7-9a9c-0aecc2eb1653,heldout250,2025-2026|article,2026,European journal of oncology nursing : the official journal of European Oncology Nursing Society,,MED,10.1016/j.ejon.2026.103310,42700767,,incoming_new_documents.jsonl
+e0defec6-1e80-51e7-b89a-2dea24bee92b,heldout250,2025-2026|article,2026,"Advanced science (Weinheim, Baden-Wurttemberg, Germany)",,MED,10.1002/advs.76238,42314063,PMC13336840,incoming_catchup_documents.jsonl
+1c229942-e73f-53be-bfff-ffd98a2e33d2,heldout250,2025-2026|article,2026,Journal of intensive care,,MED,10.1186/s40560-026-00920-4,42675521,PMC13528130,incoming_catchup_documents.jsonl
+e83369c6-47e0-52aa-b02f-021db943c44b,heldout250,2025-2026|article,2026,Medical image analysis,,MED,10.1016/j.media.2026.104240,42566941,,incoming_catchup_documents.jsonl
+ef7f5133-32f8-5f55-9ded-e11f72c44e97,heldout250,2025-2026|article,2026,Biomedical physics & engineering express,,MED,10.1088/2057-1976/aea167,42685761,,incoming_new_documents.jsonl
+d0f4b29d-f75e-5d7a-b825-e90cf0bbd164,heldout250,2025-2026|article,2026,Endoscopy international open,,MED,10.1055/a-2905-8041,42445347,PMC13358689,incoming_catchup_documents.jsonl
+18602130-f616-583e-850f-333ed161a1e5,heldout250,2025-2026|article,2026,BMC oral health,,MED,10.1186/s12903-026-08945-9,42351078,PMC13556042,incoming_catchup_documents.jsonl
+3fcb6952-f4f0-5626-af90-4c12ba4a46f9,heldout250,2025-2026|article,2026,"Pathogens (Basel, Switzerland)",,MED,10.3390/pathogens15080828,42654765,PMC13516398,incoming_catchup_documents.jsonl
+ea73be63-c7f4-5c0a-9b81-397f286341a7,heldout250,2025-2026|article,2026,BMC health services research,,MED,10.1186/s12913-026-14831-5,42251343,PMC13471589,incoming_catchup_documents.jsonl
+65e7d8b1-db23-5299-a207-af4977d468f1,heldout250,2025-2026|article,2026,eGastroenterology,,MED,10.1136/egastro-2026-100425,42602860,PMC13475249,incoming_catchup_documents.jsonl
+dce953d4-c36f-5ecf-a3a0-a6641a62e5f2,heldout250,2025-2026|article,2026,Journal of imaging,,MED,10.3390/jimaging12070329,42506175,PMC13412947,incoming_catchup_documents.jsonl
+824ecbee-f976-5e08-9fa1-f3f6bb5915c9,heldout250,2025-2026|article,2026,Journal of imaging,,MED,10.3390/jimaging12070281,42506127,PMC13412427,incoming_catchup_documents.jsonl
+0199979d-3a1e-56c3-99b3-13858df567ac,heldout250,2025-2026|article,2026,BMC infectious diseases,,MED,10.1186/s12879-026-13729-1,42237105,PMC13455478,incoming_catchup_documents.jsonl
+30707256-5264-5842-bcf0-f606ab553bfb,heldout250,2025-2026|article,2026,Chemosphere,,MED,10.1016/j.chemosphere.2026.145093,42721849,,incoming_new_documents.jsonl
+8f2c5858-d3fb-5b85-8ae7-b19f4baef0ec,heldout250,2025-2026|article,2026,Journal of the American Statistical Association,,MED,10.1080/01621459.2026.2654227,42422230,PMC13344347,incoming_catchup_documents.jsonl
+37a4ea04-c1b8-5dcc-a0a5-c9870bfb4048,heldout250,2025-2026|article,2026,Journal of hazardous materials,,MED,10.1016/j.jhazmat.2026.143445,42727141,,incoming_new_documents.jsonl
+9b92b5c3-9a42-5da8-a219-f74b77a76065,heldout250,2025-2026|article,2026,Cardiovascular diagnosis and therapy,,MED,10.21037/cdt-2025-385,42719272,PMC13554332,incoming_catchup_documents.jsonl
+bbc276cb-85b4-5160-b1c8-32935a0cb83e,heldout250,2025-2026|article,2026,PLoS computational biology,,MED,10.1371/journal.pcbi.1014559,42546039,PMC13460741,incoming_catchup_documents.jsonl
+e16a8123-3b53-522d-85da-52e24e5278da,heldout250,2025-2026|article,2026,Frontiers in neurology,,MED,10.3389/fneur.2026.1815487,42528780,PMC13414270,incoming_catchup_documents.jsonl
+8883995c-e0d6-5b2a-b745-31e2a7ec1ec5,heldout250,2025-2026|article,2026,Neurosurgery,,MED,10.1227/neu.0000000000004000,41891708,PMC13540065,incoming_catchup_documents.jsonl
+a5624154-8df6-5080-a909-559976d5c91b,heldout250,2025-2026|article,2026,Frontiers in public health,,MED,10.3389/fpubh.2026.1844470,42719088,PMC13553809,incoming_catchup_documents.jsonl
+7fe48aea-b5b9-57c7-8dc0-dd5bc505eafc,heldout250,2025-2026|article,2026,Microbiome,,MED,10.1186/s40168-026-02460-3,42426916,PMC13374233,incoming_catchup_documents.jsonl
+bb60b5f8-89e6-58a1-9a20-b0c74bc319e0,heldout250,2025-2026|article,2026,"Foods (Basel, Switzerland)",,MED,10.3390/foods15172951,42737196,,incoming_catchup_documents.jsonl
+091298bd-3fd1-5551-8a34-eeb1aaa7b408,heldout250,2025-2026|article,2026,"Medicina (Kaunas, Lithuania)",,MED,10.3390/medicina62081481,42654378,PMC13514588,incoming_catchup_documents.jsonl
+5f3e8478-ac77-5352-a2e1-a5655ea1eede,heldout250,2025-2026|article,2026,Frontiers in microbiology,,MED,10.3389/fmicb.2026.1899081,42688152,PMC13534041,incoming_new_documents.jsonl
+987147c6-a28d-507a-affd-46ff6da517f6,heldout250,2025-2026|article,2026,iScience,,MED,10.1016/j.isci.2026.117299,42698723,PMC13542512,incoming_new_documents.jsonl
+3731a4f4-089d-5264-832f-8ed56861cb1f,heldout250,2025-2026|article,2026,Frontiers in neuroscience,,MED,10.3389/fnins.2026.1815191,42433591,PMC13350232,incoming_catchup_documents.jsonl
+5db9569d-c15a-5bc3-9611-5526e40841d0,heldout250,2025-2026|article,2026,Journal of medical Internet research,,MED,10.2196/92663,42479901,PMC13387489,incoming_catchup_documents.jsonl
+52220d19-5af5-56e9-b59b-14f5f43f2016,heldout250,2025-2026|article,2026,Journal of clinical medicine,,MED,10.3390/jcm15166225,42652629,PMC13513506,incoming_catchup_documents.jsonl
+61d9908c-a241-5ba6-a09e-41ac4b8391b7,heldout250,2025-2026|article,2026,Journal of chemical theory and computation,,MED,10.1021/acs.jctc.6c00741,42503877,PMC13472091,incoming_catchup_documents.jsonl
+6d527b89-bb7e-5403-a756-c09f5480b85b,heldout250,2025-2026|article,2026,Briefings in bioinformatics,,MED,10.1093/bib/bbag449,42636030,PMC13502095,incoming_catchup_documents.jsonl
+bc6519a7-37ad-57bb-892e-81e4a8eb67ca,heldout250,2025-2026|article,2026,Clinical epidemiology,,MED,10.2147/clep.s630518,42713065,PMC13551230,incoming_new_documents.jsonl
+019ce715-7863-570c-a7fb-9a00dc92788a,heldout250,2025-2026|article,2026,Heart rhythm,,MED,10.1016/j.hrthm.2026.08.058,42697307,,incoming_new_documents.jsonl
+eb1e7867-32c6-5f6a-a331-243bbf728d77,heldout250,2025-2026|article,2026,Proteins,,MED,10.1002/prot.70163,42711946,,incoming_new_documents.jsonl
+2e00cc3b-476b-529b-bb8b-669ca702f9a6,heldout250,2025-2026|article,2026,Scientific data,,MED,10.1038/s41597-026-08154-7,42642427,PMC13507111,incoming_catchup_documents.jsonl
+26852dc8-4496-536e-a048-b8635eb59dcb,heldout250,2025-2026|article,2026,Frontiers in sports and active living,,MED,10.3389/fspor.2026.1817619,42445508,PMC13359496,incoming_catchup_documents.jsonl
+f9e4ab4c-188b-5905-aade-c129fe965fb1,heldout250,2025-2026|article,2026,Journal of inflammation research,,MED,10.2147/jir.s634146,42703413,PMC13546693,incoming_new_documents.jsonl
+54e95070-36ca-50bb-8008-1b1fc4bb3a7c,heldout250,2025-2026|article,2026,Proceedings of the National Academy of Sciences of the United States of America,,MED,10.1073/pnas.2517969123,42497200,PMC13416963,incoming_catchup_documents.jsonl
+478bdc3a-9891-5579-9692-53ebef7c1b1e,heldout250,2025-2026|article,2026,Food science & nutrition,,MED,10.1002/fsn3.72232,42688738,PMC13536486,incoming_new_documents.jsonl
+c796d043-f7b0-50a0-9b92-9883b0da8128,heldout250,2025-2026|article,2026,Frontiers in child and adolescent psychiatry,,MED,10.3389/frcha.2026.1717371,42440546,PMC13333591,incoming_catchup_documents.jsonl
+874b18fa-9dc1-5afd-9a7d-bdff01e361e7,heldout250,2025-2026|article,2026,"International journal of surgery (London, England)",,MED,10.1097/js9.0000000000005212,42682324,PMC13336606,incoming_catchup_documents.jsonl
+1984da77-cea6-5c99-9a01-e7dcba4d231b,heldout250,2025-2026|article,2026,Frontiers in artificial intelligence,,MED,10.3389/frai.2026.1913803,42719058,PMC13553833,incoming_catchup_documents.jsonl
+9f387444-42fb-5262-845a-e353ba3f19f3,heldout250,2025-2026|article,2026,Frontiers in plant science,,MED,10.3389/fpls.2026.1892035,42523915,PMC13408260,incoming_catchup_documents.jsonl
+4a0d8cab-d01d-57f6-bc0f-7313b3a75745,heldout250,2025-2026|article,2026,MedComm,,MED,10.1002/mco2.70841,42558944,PMC13439221,incoming_catchup_documents.jsonl
+9e9df008-0e01-50f9-9668-784648e2f331,heldout250,2025-2026|article,2026,Translational vision science & technology,,MED,10.1167/tvst.15.7.15,42429491,PMC13372062,incoming_catchup_documents.jsonl
+b912adf8-d07e-52cb-a55a-8881129e38f8,heldout250,2025-2026|article,2026,Journal of computational chemistry,,MED,10.1002/jcc.70501,42708536,PMC13552095,incoming_new_documents.jsonl
+4cf22248-ca74-5c9f-9d18-a6d595157305,heldout250,2025-2026|article,2026,Frontiers in immunology,,MED,10.3389/fimmu.2026.1850356,42465758,PMC13373092,incoming_catchup_documents.jsonl
+6c1cf7f8-9c5c-5d58-abbb-849de9fa9dfd,heldout250,2025-2026|article,2026,Proceedings of the National Academy of Sciences of the United States of America,,MED,10.1073/pnas.2526798123,42378281,PMC13342909,incoming_catchup_documents.jsonl
+b21bff17-8007-5de7-8fae-3cc1c80d0591,heldout250,2025-2026|article,2026,Environmental science and pollution research international,,MED,10.1007/s11356-026-38001-6,42440051,PMC13424251,incoming_catchup_documents.jsonl
+881e75dc-4cfc-57bd-958c-a6b4bd710714,heldout250,2025-2026|article,2026,Frontiers in cardiovascular medicine,,MED,10.3389/fcvm.2026.1880389,42591193,PMC13461421,incoming_catchup_documents.jsonl
+cd72be5c-577e-5026-a089-defc7ef32c7d,heldout250,2025-2026|article,2026,Conflict and health,,MED,10.1186/s13031-026-00808-y,42237394,PMC13449694,incoming_catchup_documents.jsonl
+7aed16c0-535b-579a-a8f2-b5ff87cfe87f,heldout250,2025-2026|article,2026,Frontiers in digital health,,MED,10.3389/fdgth.2026.1900115,42591110,PMC13461321,incoming_catchup_documents.jsonl
+050230fc-7077-5543-9bef-45dc1342178a,heldout250,2025-2026|article,2026,Clinical neuroradiology,,MED,10.1007/s00062-026-01642-8,41894002,PMC13521997,incoming_catchup_documents.jsonl
+8f19dacf-0bdf-5451-8eea-0e0ed2ae574e,heldout250,2025-2026|article,2026,"Medicina (Kaunas, Lithuania)",,MED,10.3390/medicina62071385,42512925,PMC13413558,incoming_catchup_documents.jsonl
+d7cf024c-1a8e-5474-9747-83917a0181ef,heldout250,2025-2026|article,2026,Journal of rehabilitation medicine,,MED,10.2340/jrm.v58.46093,42488972,PMC13403164,incoming_catchup_documents.jsonl
+2154e45c-ac0d-5c28-83b8-260f23475b9f,heldout250,2025-2026|article,2026,BMC bioinformatics,,MED,10.1186/s12859-026-06486-0,42174428,PMC13390325,incoming_catchup_documents.jsonl
+2d859d2b-d9ba-5a9a-b521-f6e1070251e2,heldout250,2025-2026|article,2026,eLife,,MED,10.7554/elife.105953,42647275,PMC13516690,incoming_catchup_documents.jsonl
+bbd7a91e-60da-520d-8353-b0667eda6d90,heldout250,2025-2026|article,2026,Frontiers in neural circuits,,MED,10.3389/fncir.2026.1783892,42609469,PMC13478094,incoming_catchup_documents.jsonl
+c71ac0e2-d472-58a1-b9c0-0cc6f2490a8d,heldout250,2025-2026|article,2026,Polymers,,MED,10.3390/polym18161995,42655276,PMC13516701,incoming_catchup_documents.jsonl
+1082e4f2-951f-5086-bf88-35d4ffa8b961,heldout250,2025-2026|article,2026,Frontiers in microbiology,,MED,10.3389/fmicb.2026.1898300,42630354,PMC13493514,incoming_catchup_documents.jsonl
+84a11c93-9f92-5b2e-b55c-8e79147008f0,heldout250,2025-2026|article,2026,Patient preference and adherence,,MED,10.2147/ppa.s627312,42634782,PMC13500001,incoming_catchup_documents.jsonl
+c383bba2-ecb3-5c33-a1fd-a6f8738a3de1,heldout250,2025-2026|article,2026,JACC. Advances,,MED,10.1016/j.jacadv.2026.102628,41906614,PMC13352000,incoming_catchup_documents.jsonl
+9f524473-4beb-5ad1-9019-b2314430b764,heldout250,2025-2026|article,2026,PLoS genetics,,MED,10.1371/journal.pgen.1012271,42579721,PMC13492815,incoming_catchup_documents.jsonl
+21a3738a-af69-525d-bce8-a0236046e793,heldout250,2025-2026|article,2026,BMC geriatrics,,MED,10.1186/s12877-026-07761-8,42401826,PMC13339853,incoming_catchup_documents.jsonl
+f4835625-a4f4-5aa2-b996-d43bf04fc546,heldout250,2025-2026|article,2026,Frontiers in genetics,,MED,10.3389/fgene.2026.1875546,42535174,PMC13423288,incoming_catchup_documents.jsonl
+11ae9b7d-2690-55f4-9736-fd85c6dca404,heldout250,2025-2026|article,2026,Physics in medicine and biology,,MED,10.1088/1361-6560/aea684,42727609,,incoming_new_documents.jsonl
+b1ba20cc-5d7c-5457-bd2b-641479eba558,heldout250,2025-2026|article,2026,"Visual computing for industry, biomedicine, and art",,MED,10.1186/s42492-026-00223-3,42406199,PMC13337999,incoming_catchup_documents.jsonl
+44dbbeba-a163-56e5-a45b-5e16af872c2a,heldout250,2025-2026|article,2026,Cadernos de saude publica,,MED,10.1590/0102-311xen145025,42561294,PMC13431991,incoming_catchup_documents.jsonl
+ceb894cf-f547-55a4-ae9a-47592bc7c2de,heldout250,2025-2026|article,2026,Frontiers in artificial intelligence,,MED,10.3389/frai.2026.1881033,42719188,PMC13553949,incoming_catchup_documents.jsonl
+d7415a2d-bc27-579c-954e-1af94c24e524,heldout250,2025-2026|article,2026,Brain sciences,,MED,10.3390/brainsci16080856,42651165,PMC13511316,incoming_catchup_documents.jsonl
+a99e8150-c616-5873-ade0-f973a047c023,heldout250,2025-2026|article,2026,Bioinformatics advances,,MED,10.1093/bioadv/vbag180,42523759,PMC13407425,incoming_catchup_documents.jsonl
+854c4297-bc09-54cb-bc4b-7c021175badf,heldout250,2025-2026|article,2026,Journal of chemical information and modeling,,MED,10.1021/acs.jcim.6c01333,42734540,,incoming_catchup_documents.jsonl
+57551b1a-a54d-5bba-9f75-7dae17076009,heldout250,2025-2026|article,2026,IEEE transactions on medical imaging,,MED,10.1109/tmi.2026.3712008,42441441,,incoming_catchup_documents.jsonl
+bfb9a496-f6f4-5ed4-a468-fb3fb602a6a4,heldout250,2025-2026|article,2026,Frontiers in veterinary science,,MED,10.3389/fvets.2026.1863556,42528684,PMC13414748,incoming_catchup_documents.jsonl
+b54150b4-917a-5cfa-b05d-161794621d01,heldout250,2025-2026|article,2026,Journal of cardiothoracic surgery,,MED,10.1186/s13019-026-04126-5,42157309,PMC13371126,incoming_catchup_documents.jsonl
+a71558b9-0668-5db7-9f82-491d6ce0b7fd,heldout250,2025-2026|article,2026,Communications chemistry,,MED,10.1038/s42004-026-02077-5,42243544,PMC13554118,incoming_catchup_documents.jsonl
+f72811ef-cf82-59e0-8c98-0c7f6aaa5ca3,heldout250,2025-2026|article,2026,Molecular plant,,MED,10.1016/j.molp.2026.08.011,42716029,,incoming_new_documents.jsonl
+ba7d4ad7-eff7-5008-8b4d-ffa2d37e6f18,heldout250,2025-2026|article,2026,Cardiovascular diagnosis and therapy,,MED,10.21037/cdt-2025-1-653,42719328,PMC13554401,incoming_catchup_documents.jsonl
+f2013dd7-e9ab-5d70-bbc8-73071eb0961e,heldout250,2025-2026|article,2026,Pest management science,,MED,10.1002/ps.70960,42187163,PMC13453200,incoming_catchup_documents.jsonl
+a7211c60-0806-55aa-a861-5b2490f32936,heldout250,2025-2026|article,2026,ACS omega,,MED,10.1021/acsomega.6c01708,42495345,PMC13393186,incoming_catchup_documents.jsonl
+c8868a70-5c2d-51ed-9f17-ed55f0cb861d,heldout250,2025-2026|article,2026,Proceedings. IEEE International Conference on Healthcare Informatics,,MED,10.1109/ichi69079.2026.00049,42609893,PMC13480405,incoming_catchup_documents.jsonl
+fa6a9a3f-adb5-54e6-a896-005f17b66066,heldout250,2025-2026|article,2026,Brain sciences,,MED,10.3390/brainsci16070719,42512493,PMC13406624,incoming_catchup_documents.jsonl
+46d681cd-cc9e-5f23-846b-96fb4512ead8,heldout250,2025-2026|article,2026,JACC. Advances,,MED,10.1016/j.jacadv.2026.103114,42720663,,incoming_catchup_documents.jsonl
+2b67729e-73f4-59be-9e8c-fe4a9461fe48,heldout250,2025-2026|article,2026,Water environment research : a research publication of the Water Environment Federation,,MED,10.1002/wer.70445,42362479,PMC13349588,incoming_catchup_documents.jsonl
+4aea47ae-ec6f-5ec2-b7ba-eb7e541c9350,heldout250,2025-2026|article,2026,Human genome variation,,MED,10.1038/s41439-026-00352-4,42265081,PMC13476443,incoming_catchup_documents.jsonl
+57e5c1a1-02f4-5cd1-bf87-05fcdb21a451,heldout250,2025-2026|article,2026,Environmental science & technology,,MED,10.1021/acs.est.6c04811,42689810,,incoming_new_documents.jsonl
+eb25c464-7306-5f8d-b376-cb10f20ce9ee,heldout250,2025-2026|article,2026,ADMET & DMPK,,MED,10.5599/admet.3460,42633343,PMC13499669,incoming_catchup_documents.jsonl
+80da5b95-51a5-5a6c-8695-a9880e07ea60,heldout250,2025-2026|article,2026,The Plant cell,,MED,10.1093/plcell/koag263,42710050,,incoming_new_documents.jsonl
+8280f81d-3a51-5cfb-bfdc-6c024b1c3bee,heldout250,2025-2026|article,2026,IEEE journal of biomedical and health informatics,,MED,10.1109/jbhi.2026.3733235,42726616,,incoming_new_documents.jsonl
+646ac343-e8c2-5dfe-93d8-545984774a17,heldout250,2025-2026|article,2026,Gland surgery,,MED,10.21037/gs-2026-0304,42724929,PMC13561610,incoming_catchup_documents.jsonl
+fb43bfa5-a9d4-5faf-a3e2-4b277d335f56,heldout250,2025-2026|article,2026,Animals : an open access journal from MDPI,,MED,10.3390/ani16152414,42589052,PMC13465142,incoming_catchup_documents.jsonl
+8bafc3bb-4305-55d9-801d-70531ab4698d,heldout250,2025-2026|article,2026,NPJ systems biology and applications,,MED,10.1038/s41540-026-00734-y,42106409,PMC13376763,incoming_catchup_documents.jsonl
+8bfd445d-b6d2-5f8d-a6ff-f7fc5d76e3ae,heldout250,2025-2026|article,2026,The Journal of clinical psychiatry,,MED,10.4088/jcp.26m16487,42726636,,incoming_new_documents.jsonl
+e28df596-0ac2-56e6-acee-ff007e6aeaab,heldout250,2025-2026|article,2026,Talanta,,MED,10.1016/j.talanta.2026.130608,42731265,,incoming_new_documents.jsonl
+4ae1e67c-451e-5f2c-862f-6ee41e814176,heldout250,2025-2026|article,2026,Frontiers in sports and active living,,MED,10.3389/fspor.2026.1850018,42516995,PMC13402369,incoming_catchup_documents.jsonl
+30d8b078-7ac5-5d5e-97d5-c2abc1afa782,heldout250,2025-2026|article,2026,FASEB journal : official publication of the Federation of American Societies for Experimental Biology,,MED,10.1096/fj.202602915r,42667125,PMC13525488,incoming_catchup_documents.jsonl
+cc893d54-d67a-5c4c-98e6-6d14f0f2e002,heldout250,2025-2026|article,2026,Biomedicines,,MED,10.3390/biomedicines14071614,42512087,PMC13406011,incoming_catchup_documents.jsonl
+5e3b4673-e442-5529-9ab1-2b36867e4a75,heldout250,2025-2026|article,2026,Frontiers in nutrition,,MED,10.3389/fnut.2026.1789303,42404154,PMC13327873,incoming_catchup_documents.jsonl
+c03b53bb-d190-5554-8c1e-bcf47d7e0480,heldout250,2025-2026|article,2026,Drug discovery today,,MED,10.1016/j.drudis.2026.104802,42716204,,incoming_new_documents.jsonl
+3d126b17-62a4-50de-8878-b8544d29fb44,heldout250,2025-2026|article,2026,Medicine,,MED,10.1097/md.0000000000049712,42432945,PMC13362937,incoming_catchup_documents.jsonl
+6c2f4ef1-48f3-5dea-ba61-5c370fedc103,heldout250,2025-2026|article,2026,Biophotonics discovery,,MED,10.1117/1.bios.3.4.043103,42719847,PMC13557456,incoming_catchup_documents.jsonl
+69212f4f-dadc-521a-8bc5-cc50fcf1c221,heldout250,2025-2026|article,2026,Bioinformatics advances,,MED,10.1093/bioadv/vbag159,42534439,PMC13420497,incoming_catchup_documents.jsonl
+4aef64c3-bd6a-5a54-ad80-3c2f29d31e3a,heldout250,2025-2026|article,2026,Clinical pharmacology and therapeutics,,MED,10.1002/cpt.70437,42568048,PMC13451384,incoming_catchup_documents.jsonl
+dd9e672d-568e-5f23-8eef-4e4d2deb11ae,heldout250,2025-2026|preprint,2026,,Research Square,PPR,10.21203/rs.3.rs-10716532/v1,,,incoming_new_documents.jsonl
+3e36cca5-6264-5545-9acb-b66c06bf784f,heldout250,2025-2026|preprint,2026,,medRxiv,PPR,10.64898/2026.09.08.26362248,,,incoming_new_documents.jsonl
+61481e9b-768d-59aa-84c7-167363db4e24,heldout250,2025-2026|preprint,2026,,bioRxiv,PPR,10.64898/2026.09.10.750674,,,incoming_new_documents.jsonl
+56c9d927-8680-5f8f-af6d-002e5775db57,heldout250,2025-2026|preprint,2026,,Preprints.org,PPR,10.20944/preprints202609.0205.v1,,,incoming_new_documents.jsonl
+0804b3dc-26a3-5cda-bf35-21aa81d4f94c,heldout250,2025-2026|preprint,2026,,PsyArXiv,PPR,10.31234/osf.io/m36sy_v1,,,incoming_new_documents.jsonl
+405b6de3-c0af-5f68-bfc9-23e3d1ca58cf,heldout250,2025-2026|preprint,2026,,bioRxiv,PPR,10.64898/2026.09.08.750266,,,incoming_new_documents.jsonl
+7c9f14d7-296c-52c9-9f9b-083d9ce1f082,heldout250,2025-2026|preprint,2026,,bioRxiv,PPR,10.64898/2026.09.02.748961,,,incoming_new_documents.jsonl
+876b74e2-eeec-5b4e-9cef-44f615e5adcd,heldout250,2025-2026|preprint,2026,,medRxiv,PPR,10.64898/2026.09.08.26362428,,,incoming_new_documents.jsonl
+4e96dc47-a782-52c6-a005-e2323603349b,heldout250,2025-2026|preprint,2026,,Research Square,PPR,10.21203/rs.3.rs-10821560/v1,,,incoming_new_documents.jsonl
+0578b126-56c5-585c-877b-bf4c2ce1f65d,heldout250,2025-2026|preprint,2026,,Research Square,PPR,10.21203/rs.3.rs-10690303/v1,,,incoming_new_documents.jsonl
+bf859805-73dc-5c58-bac9-21b4a2a9bbc1,heldout250,2025-2026|preprint,2026,,Research Square,PPR,10.21203/rs.3.rs-10776401/v1,,,incoming_new_documents.jsonl
+54336edc-c23b-556d-9c90-cc36e648dd16,heldout250,2025-2026|preprint,2026,,Research Square,PPR,10.21203/rs.3.rs-10728055/v1,,,incoming_new_documents.jsonl
+5d5f071e-e1cc-5cd9-a108-aa9498bcc800,heldout250,2025-2026|preprint,2026,,bioRxiv,PPR,10.64898/2026.09.03.749070,,,incoming_new_documents.jsonl
+0c66e27f-df8a-5c2e-aad6-bbf62f33b98f,heldout250,2025-2026|preprint,2026,,Research Square,PPR,10.21203/rs.3.rs-10588161/v1,,,incoming_new_documents.jsonl
+2b2a68f6-efa2-5ad9-8d8b-2585045296f0,heldout250,2025-2026|preprint,2026,,medRxiv,PPR,10.64898/2026.09.07.26362459,,,incoming_new_documents.jsonl
+20ce8754-c42d-5514-8f67-09837289ee49,heldout250,2025-2026|preprint,2026,,Research Square,PPR,10.21203/rs.3.rs-10488162/v1,,,incoming_new_documents.jsonl
+e577dd0a-b400-5b2b-87d9-64cdd3de9455,heldout250,2025-2026|preprint,2026,,bioRxiv,PPR,10.64898/2026.09.02.748853,,,incoming_new_documents.jsonl
+cba9fe3e-56ac-551c-b458-17cae2877e82,heldout250,2025-2026|preprint,2026,,Research Square,PPR,10.21203/rs.3.rs-10728078/v1,,,incoming_new_documents.jsonl
+1dfaf922-7e7f-5c95-a510-aa057ff5cff1,heldout250,2025-2026|preprint,2026,,bioRxiv,PPR,10.64898/2026.09.02.747768,,,incoming_new_documents.jsonl
+6e48bed5-6aa1-5ea9-938f-673d26adde3a,heldout250,unknown|article,2027,"Inverse problems and imaging (Springfield, Mo.)",,MED,10.3934/ipi.2026033,42519369,PMC13384443,incoming_catchup_documents.jsonl
+2353f56d-7377-5737-8876-7ff597c2e456,heldout250,unknown|article,2027,Synthetic and systems biotechnology,,MED,10.1016/j.synbio.2026.06.002,42433271,PMC13351394,incoming_catchup_documents.jsonl
+84d41870-f6fc-5fe1-a0b5-ccf2fee6bae4,heldout250,unknown|article,2027,Synthetic and systems biotechnology,,MED,10.1016/j.synbio.2026.07.013,42630760,PMC13495406,incoming_catchup_documents.jsonl
+9326bac0-ed2c-584b-9732-34703d2ea7d3,heldout250,unknown|article,2027,Medical gas research,,MED,10.4103/mgr.medgasres-d-25-00168,42734443,,incoming_new_documents.jsonl
+4903afba-2248-518e-b129-2725128364a0,heldout250,unknown|article,2027,Journal of hand surgery global online,,MED,10.1016/j.jhsg.2026.101118,42733640,PMC13571302,incoming_catchup_documents.jsonl
+5457f79b-fba9-536e-bb12-4b351febacf0,heldout250,unknown|article,2027,Infectious Disease Modelling,,MED,10.1016/j.idm.2026.07.003,42571518,PMC13452303,incoming_catchup_documents.jsonl
+f652d04e-f282-508e-801c-f7506af6e396,heldout250,unknown|article,2027,Magnetic resonance letters,,MED,10.1016/j.mrl.2026.200292,42518518,PMC13382769,incoming_catchup_documents.jsonl

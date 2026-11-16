@@ -1,0 +1,117 @@
+record_id,unit,verdict,error_codes,note,rater,rater_type,timestamp
+5dbe9a1c-2654-55b9-ae29-19c5e02c98fb,domain,correct,,,gf,human,2026-11-16T20:50:14.337103+00:00
+5dbe9a1c-2654-55b9-ae29-19c5e02c98fb,domain,correct,,"Correctly identifies - oncology key, lung cancer model. Medical application and imaging data all in use.",gf,human,2026-11-16T20:51:06.501134+00:00
+5dbe9a1c-2654-55b9-ae29-19c5e02c98fb,learning_paradigm,correct,,,gf,human,2026-11-16T20:51:18.304343+00:00
+5dbe9a1c-2654-55b9-ae29-19c5e02c98fb,learning_paradigm,correct,,use of CNN and pos/neg - yes supervised correct paradigm ,gf,human,2026-11-16T20:51:35.858288+00:00
+5dbe9a1c-2654-55b9-ae29-19c5e02c98fb,model_family,correct,,,gf,human,2026-11-16T20:51:37.096948+00:00
+5dbe9a1c-2654-55b9-ae29-19c5e02c98fb,model_family,correct,,CNN & transformer - both deep and classical ML approaches - classical may be mixed for transofrmer as newer but both DL and agree,gf,human,2026-11-16T20:52:14.010380+00:00
+5dbe9a1c-2654-55b9-ae29-19c5e02c98fb,model_type,correct,,,gf,human,2026-11-16T20:52:19.870827+00:00
+5dbe9a1c-2654-55b9-ae29-19c5e02c98fb,model_type,correct,,"all identified correctly - CNN, transformer, and also perfomance vs RF & logistic regression noted",gf,human,2026-11-16T20:53:01.422835+00:00
+5dbe9a1c-2654-55b9-ae29-19c5e02c98fb,model_use,correct,,,gf,human,2026-11-16T20:53:01.423819+00:00
+5dbe9a1c-2654-55b9-ae29-19c5e02c98fb,model_use,correct,,Yes - novel model trained in study,gf,human,2026-11-16T20:53:09.463850+00:00
+2b0af514-3f7a-5541-9f70-4401fa757b48,domain,correct,,,gf,human,2026-11-16T20:54:20.709896+00:00
+2b0af514-3f7a-5541-9f70-4401fa757b48,learning_paradigm,correct,,,gf,human,2026-11-16T20:54:26.886820+00:00
+2b0af514-3f7a-5541-9f70-4401fa757b48,model_family,correct,,,gf,human,2026-11-16T20:54:31.968613+00:00
+2b0af514-3f7a-5541-9f70-4401fa757b48,model_type,correct,,,gf,human,2026-11-16T20:54:37.408054+00:00
+2b0af514-3f7a-5541-9f70-4401fa757b48,model_use,correct,,,gf,human,2026-11-16T20:54:46.812159+00:00
+b714f9c1-6bb4-5595-91c0-e2603d692e48,domain,correct,,,gf,human,2026-11-16T20:55:12.422533+00:00
+b714f9c1-6bb4-5595-91c0-e2603d692e48,model_use,correct,,,gf,human,2026-11-16T20:56:04.603110+00:00
+b714f9c1-6bb4-5595-91c0-e2603d692e48,model_type,correct,,,gf,human,2026-11-16T20:56:06.649354+00:00
+b714f9c1-6bb4-5595-91c0-e2603d692e48,model_type,correct,,regression tree model ,gf,human,2026-11-16T20:56:16.921205+00:00
+b714f9c1-6bb4-5595-91c0-e2603d692e48,model_type,minor,,regression tree model ,gf,human,2026-11-16T20:56:16.922190+00:00
+b714f9c1-6bb4-5595-91c0-e2603d692e48,model_type,minor,missing,regression tree model ,gf,human,2026-11-16T20:56:22.436800+00:00
+b714f9c1-6bb4-5595-91c0-e2603d692e48,model_type,minor,,regression tree model ,gf,human,2026-11-16T20:56:23.031811+00:00
+b714f9c1-6bb4-5595-91c0-e2603d692e48,model_type,minor,missing,regression tree model ,gf,human,2026-11-16T20:56:24.292280+00:00
+b714f9c1-6bb4-5595-91c0-e2603d692e48,model_type,minor,missing,gradient boosting correct but  -  regression tree model absent,gf,human,2026-11-16T20:56:41.627516+00:00
+b714f9c1-6bb4-5595-91c0-e2603d692e48,model_family,minor,,,gf,human,2026-11-16T20:57:08.613958+00:00
+b714f9c1-6bb4-5595-91c0-e2603d692e48,model_family,minor,wrong_term,,gf,human,2026-11-16T20:57:10.259928+00:00
+b714f9c1-6bb4-5595-91c0-e2603d692e48,model_family,correct,,,gf,human,2026-11-16T20:57:18.643113+00:00
+b714f9c1-6bb4-5595-91c0-e2603d692e48,learning_paradigm,correct,,,gf,human,2026-11-16T20:57:31.963907+00:00
+a456e739-61b0-5912-b58e-7786dcd761cc,domain,correct,,,gf,human,2026-11-16T20:59:47.216763+00:00
+a456e739-61b0-5912-b58e-7786dcd761cc,learning_paradigm,correct,,,gf,human,2026-11-16T21:00:55.692454+00:00
+a456e739-61b0-5912-b58e-7786dcd761cc,model_family,correct,,,gf,human,2026-11-16T21:00:56.918398+00:00
+a456e739-61b0-5912-b58e-7786dcd761cc,model_type,correct,,,gf,human,2026-11-16T21:00:59.024534+00:00
+a456e739-61b0-5912-b58e-7786dcd761cc,model_use,correct,,,gf,human,2026-11-16T21:01:02.745939+00:00
+eee8378b-6fdc-5952-852c-11157d9861b7,domain,correct,,,gf,human,2026-11-16T21:01:14.363811+00:00
+eee8378b-6fdc-5952-852c-11157d9861b7,learning_paradigm,correct,,,gf,human,2026-11-16T21:01:21.088769+00:00
+eee8378b-6fdc-5952-852c-11157d9861b7,model_family,correct,,,gf,human,2026-11-16T21:01:37.282295+00:00
+eee8378b-6fdc-5952-852c-11157d9861b7,model_family,minor,,,gf,human,2026-11-16T21:02:13.551892+00:00
+eee8378b-6fdc-5952-852c-11157d9861b7,model_family,minor,wrong_term,,gf,human,2026-11-16T21:02:14.325943+00:00
+eee8378b-6fdc-5952-852c-11157d9861b7,model_family,minor,wrong_term,acitve learning not a temr,gf,human,2026-11-16T21:02:22.585845+00:00
+eee8378b-6fdc-5952-852c-11157d9861b7,model_family,minor,wrong_term,acitve learning not a term,gf,human,2026-11-16T21:02:50.400875+00:00
+eee8378b-6fdc-5952-852c-11157d9861b7,model_type,minor,wrong_term,,gf,human,2026-11-16T21:03:13.529942+00:00
+eee8378b-6fdc-5952-852c-11157d9861b7,model_type,minor,wrong_term,dominant set clustering not a term in vocab,gf,human,2026-11-16T21:03:29.825315+00:00
+eee8378b-6fdc-5952-852c-11157d9861b7,model_use,correct,,,gf,human,2026-11-16T21:03:30.761493+00:00
+a66c4ef8-51ba-5dda-af26-e6a75ca56cad,domain,correct,,,gf,human,2026-11-16T21:03:50.732961+00:00
+a66c4ef8-51ba-5dda-af26-e6a75ca56cad,learning_paradigm,correct,,,gf,human,2026-11-16T21:05:16.298784+00:00
+a66c4ef8-51ba-5dda-af26-e6a75ca56cad,model_family,correct,,,gf,human,2026-11-16T21:05:24.918395+00:00
+a66c4ef8-51ba-5dda-af26-e6a75ca56cad,model_type,correct,,,gf,human,2026-11-16T21:06:05.823188+00:00
+a66c4ef8-51ba-5dda-af26-e6a75ca56cad,model_use,correct,,,gf,human,2026-11-16T21:06:16.545375+00:00
+9e5a643f-72d5-5ac4-b688-40740b3853d7,domain,correct,,,gf,human,2026-11-16T21:12:10.200057+00:00
+9e5a643f-72d5-5ac4-b688-40740b3853d7,domain,minor,,,gf,human,2026-11-16T21:13:53.429960+00:00
+9e5a643f-72d5-5ac4-b688-40740b3853d7,domain,minor,wrong_term,,gf,human,2026-11-16T21:13:55.661404+00:00
+eee8378b-6fdc-5952-852c-11157d9861b7,model_family,correct,,"Corrected at gf's instruction: earlier minor rested only on 'active learning not a term', but it is in the closed model_family vocabulary.",gf,human,2026-11-16T21:16:23.724675+00:00
+eee8378b-6fdc-5952-852c-11157d9861b7,model_type,correct,,"Corrected at gf's instruction: earlier minor rested only on 'dominant set clustering not in vocab', but model_type is an open vocabulary.",gf,human,2026-11-16T21:16:23.725177+00:00
+b714f9c1-6bb4-5595-91c0-e2603d692e48,model_type,correct,,"Corrected at gf's instruction: earlier minor rested only on 'regression tree absent', but a gradient boosting regression tree is one model (GBDT = canonical 'gradient boosting').",gf,human,2026-11-16T21:16:23.725463+00:00
+9e5a643f-72d5-5ac4-b688-40740b3853d7,domain,minor,wrong_term,T2 terms not very accurate - parasitlogy not applicable for plant bacterium vs actual parasites,gf,human,2026-11-16T21:18:59.032427+00:00
+9e5a643f-72d5-5ac4-b688-40740b3853d7,learning_paradigm,correct,,,gf,human,2026-11-16T21:19:00.978031+00:00
+9e5a643f-72d5-5ac4-b688-40740b3853d7,model_family,correct,,,gf,human,2026-11-16T21:19:02.810842+00:00
+9e5a643f-72d5-5ac4-b688-40740b3853d7,model_type,correct,,,gf,human,2026-11-16T21:19:04.420243+00:00
+9e5a643f-72d5-5ac4-b688-40740b3853d7,model_use,correct,,,gf,human,2026-11-16T21:19:05.883723+00:00
+590ea089-8c02-5b80-8395-985c9948df1a,domain,correct,,,gf,human,2026-11-16T21:19:31.645535+00:00
+590ea089-8c02-5b80-8395-985c9948df1a,learning_paradigm,correct,,,gf,human,2026-11-16T21:19:43.311589+00:00
+590ea089-8c02-5b80-8395-985c9948df1a,model_family,correct,,,gf,human,2026-11-16T21:20:02.052803+00:00
+590ea089-8c02-5b80-8395-985c9948df1a,model_type,correct,,,gf,human,2026-11-16T21:20:25.466644+00:00
+590ea089-8c02-5b80-8395-985c9948df1a,model_use,correct,,,gf,human,2026-11-16T21:20:27.156179+00:00
+3f41c0ef-c12c-557b-9e2d-a058c4dc0d1b,domain,correct,,,gf,human,2026-11-16T21:20:49.912779+00:00
+3f41c0ef-c12c-557b-9e2d-a058c4dc0d1b,learning_paradigm,correct,,,gf,human,2026-11-16T21:21:06.708414+00:00
+3f41c0ef-c12c-557b-9e2d-a058c4dc0d1b,model_family,correct,,,gf,human,2026-11-16T21:21:18.880972+00:00
+3f41c0ef-c12c-557b-9e2d-a058c4dc0d1b,model_type,correct,,,gf,human,2026-11-16T21:21:21.638265+00:00
+3f41c0ef-c12c-557b-9e2d-a058c4dc0d1b,model_use,correct,,,gf,human,2026-11-16T21:21:29.962768+00:00
+e9a268fa-b056-580d-be3a-43a692938906,model_family,correct,,,gf,human,2026-11-16T21:22:03.825766+00:00
+e9a268fa-b056-580d-be3a-43a692938906,model_type,correct,,,gf,human,2026-11-16T21:22:05.368614+00:00
+e9a268fa-b056-580d-be3a-43a692938906,domain,correct,,,gf,human,2026-11-16T21:22:23.592547+00:00
+e9a268fa-b056-580d-be3a-43a692938906,learning_paradigm,correct,,,gf,human,2026-11-16T21:22:25.763203+00:00
+e9a268fa-b056-580d-be3a-43a692938906,model_use,correct,,,gf,human,2026-11-16T21:22:44.990340+00:00
+d03671f6-ef51-5c2f-bb26-afa43844004d,model_type,correct,,,gf,human,2026-11-16T21:23:25.209161+00:00
+d03671f6-ef51-5c2f-bb26-afa43844004d,model_family,correct,,,gf,human,2026-11-16T21:23:27.280075+00:00
+d03671f6-ef51-5c2f-bb26-afa43844004d,learning_paradigm,correct,,,gf,human,2026-11-16T21:23:29.868094+00:00
+d03671f6-ef51-5c2f-bb26-afa43844004d,domain,correct,,,gf,human,2026-11-16T21:23:33.018334+00:00
+d03671f6-ef51-5c2f-bb26-afa43844004d,model_use,correct,,,gf,human,2026-11-16T21:23:57.971120+00:00
+81ffdb38-1448-550d-b489-3f5605df2a21,domain,correct,,,gf,human,2026-11-16T21:24:36.299783+00:00
+81ffdb38-1448-550d-b489-3f5605df2a21,model_family,correct,,,gf,human,2026-11-16T21:24:40.147122+00:00
+81ffdb38-1448-550d-b489-3f5605df2a21,learning_paradigm,correct,,,gf,human,2026-11-16T21:24:40.979912+00:00
+81ffdb38-1448-550d-b489-3f5605df2a21,model_type,correct,,,gf,human,2026-11-16T21:24:43.950198+00:00
+81ffdb38-1448-550d-b489-3f5605df2a21,model_use,correct,,,gf,human,2026-11-16T21:24:52.938095+00:00
+c7df07f7-bf03-56c4-adb6-00855650fd75,domain,correct,,,gf,human,2026-11-16T21:25:05.606268+00:00
+c7df07f7-bf03-56c4-adb6-00855650fd75,learning_paradigm,correct,,,gf,human,2026-11-16T21:25:07.833606+00:00
+c7df07f7-bf03-56c4-adb6-00855650fd75,model_family,correct,,,gf,human,2026-11-16T21:25:20.625132+00:00
+c7df07f7-bf03-56c4-adb6-00855650fd75,model_type,correct,,,gf,human,2026-11-16T21:26:29.081850+00:00
+c7df07f7-bf03-56c4-adb6-00855650fd75,model_use,correct,,,gf,human,2026-11-16T21:26:30.667241+00:00
+c83aa655-7d09-5446-9ec7-6f90803b58be,domain,correct,,,gf,human,2026-11-16T21:27:49.430978+00:00
+c83aa655-7d09-5446-9ec7-6f90803b58be,learning_paradigm,correct,,,gf,human,2026-11-16T21:28:01.591864+00:00
+c83aa655-7d09-5446-9ec7-6f90803b58be,model_family,correct,,,gf,human,2026-11-16T21:28:02.941271+00:00
+c83aa655-7d09-5446-9ec7-6f90803b58be,model_type,correct,,,gf,human,2026-11-16T21:28:04.516718+00:00
+c83aa655-7d09-5446-9ec7-6f90803b58be,model_use,correct,,,gf,human,2026-11-16T21:28:09.714088+00:00
+10b89b18-8439-5956-b618-46b786697596,domain,correct,,,gf,human,2026-11-16T21:28:23.238295+00:00
+10b89b18-8439-5956-b618-46b786697596,learning_paradigm,correct,,,gf,human,2026-11-16T21:28:24.463097+00:00
+10b89b18-8439-5956-b618-46b786697596,model_family,correct,,,gf,human,2026-11-16T21:28:48.729493+00:00
+10b89b18-8439-5956-b618-46b786697596,model_type,correct,,,gf,human,2026-11-16T21:28:49.561356+00:00
+10b89b18-8439-5956-b618-46b786697596,model_use,correct,,,gf,human,2026-11-16T21:28:50.722084+00:00
+c263aed3-9f2b-52ad-a65d-174d79abad77,domain,correct,,,gf,human,2026-11-16T21:29:34.462452+00:00
+c263aed3-9f2b-52ad-a65d-174d79abad77,model_family,correct,,,gf,human,2026-11-16T21:30:11.769015+00:00
+c263aed3-9f2b-52ad-a65d-174d79abad77,learning_paradigm,correct,,,gf,human,2026-11-16T21:30:13.230285+00:00
+c263aed3-9f2b-52ad-a65d-174d79abad77,model_type,correct,,,gf,human,2026-11-16T21:30:14.545780+00:00
+c263aed3-9f2b-52ad-a65d-174d79abad77,model_use,correct,,,gf,human,2026-11-16T21:30:33.457996+00:00
+dc2bbe8a-eae2-5444-96f8-4fba136b6b1e,domain,correct,,,gf,human,2026-11-16T21:30:46.506114+00:00
+dc2bbe8a-eae2-5444-96f8-4fba136b6b1e,learning_paradigm,correct,,,gf,human,2026-11-16T21:31:03.586676+00:00
+dc2bbe8a-eae2-5444-96f8-4fba136b6b1e,model_family,correct,,,gf,human,2026-11-16T21:31:15.701874+00:00
+dc2bbe8a-eae2-5444-96f8-4fba136b6b1e,model_use,correct,,,gf,human,2026-11-16T21:31:18.469448+00:00
+dc2bbe8a-eae2-5444-96f8-4fba136b6b1e,model_type,correct,,,gf,human,2026-11-16T21:31:29.787189+00:00
+2163a872-b5e7-5dac-a067-59d2e341a98f,domain,correct,,,gf,human,2026-11-16T21:32:05.855949+00:00
+2163a872-b5e7-5dac-a067-59d2e341a98f,learning_paradigm,correct,,,gf,human,2026-11-16T21:32:07.295915+00:00
+2163a872-b5e7-5dac-a067-59d2e341a98f,model_family,correct,,,gf,human,2026-11-16T21:32:08.128095+00:00
+2163a872-b5e7-5dac-a067-59d2e341a98f,model_type,correct,,,gf,human,2026-11-16T21:32:09.501019+00:00
+2163a872-b5e7-5dac-a067-59d2e341a98f,model_type,minor,,,gf,human,2026-11-16T21:32:13.392799+00:00
+2163a872-b5e7-5dac-a067-59d2e341a98f,model_type,minor,,SVM named 2X?,gf,human,2026-11-16T21:32:49.384118+00:00
+2163a872-b5e7-5dac-a067-59d2e341a98f,model_use,correct,,,gf,human,2026-11-16T21:32:51.116244+00:00

@@ -31,7 +31,11 @@ COHORTS = {
     "wave2": {"input": "data/input_wave2_250.csv", "events": "runs/events_wave2.csv"},
     "enriched100": {"input": "data/input_enriched_100.csv", "events": "runs/events_enriched100.csv",
                     "reference": "data/reference_deepseek_100.csv"},
+    # Held out from everything the e2 prompt was shaped on (scripts/export_heldout.py).
+    "heldout250": {"input": "data/input_heldout_250.csv", "events": "runs/events_heldout250.csv",
+                   "metadata": "data/heldout_250_metadata.csv"},
 }
+E2_REPORTS = REPO / "reports" / "e2_improvement"
 
 
 def load_env(path: Path = REPO / ".env") -> dict[str, str]:

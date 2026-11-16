@@ -6,10 +6,10 @@ stored for the same records, set beside how far DeepSeek V4.1 agreed with DeepSe
     python3 scripts/compare_to_deepseek.py                  # prints, and writes the report
     python3 scripts/compare_to_deepseek.py --examples 5     # plus disagreements per field
 
-The metrics are the triage repo's moros_pipeline/scripts/compare_enrichment_to_corpus.py, copied:
-exact agreement (the same set of terms, case-folded), mean Jaccard overlap, both-empty share, and
-the share of records agreeing on all six fields; domain_tier1 is compared as the first term only,
-the way moros stores it.
+The metric is the triage repo's moros_pipeline/scripts/compare_enrichment_to_corpus.py exact
+agreement: a field agrees when both models chose the same set of terms (case-folded). Also the share
+of records agreeing on all six fields. domain_tier1 is compared as the first term only, the way moros
+stores it.
 """
 
 from __future__ import annotations
@@ -29,8 +29,9 @@ from glm_enrich import COHORTS, FIELDS, REPO  # noqa: E402
 # (triage repo, logs/gate_enrich_compare_20260915.log): the same model family disagreeing with itself.
 BASELINE_V4_VS_V41 = {"domain_tier1": 0.95, "domain_tier2": 0.43, "domain_tier3": 0.28,
                       "learning_paradigm": 0.87, "model_family": 0.77, "model_type": 0.45, "all_six": 0.04}
-BASELINE_JACCARD = {"domain_tier1": 0.950, "domain_tier2": 0.605, "domain_tier3": 0.546,
-                    "learning_paradigm": 0.893, "model_family": 0.868, "model_type": 0.598}
+FIELD_LABELS = {"domain_tier1": "Domain, top level (EDAM tier 1)", "domain_tier2": "Domain, tier 2",
+                "domain_tier3": "Domain, tier 3", "learning_paradigm": "Learning paradigm",
+                "model_family": "Model family", "model_type": "Model type"}
 
 
 # --- copied from compare_enrichment_to_corpus.py -------------------------------------------------
@@ -67,12 +68,6 @@ def event_terms(row: dict, field: str) -> set[str]:
     return _norm(values)
 
 
-def jaccard(a: set, b: set) -> float:
-    if not a and not b:
-        return 1.0
-    return len(a & b) / len(a | b)
-
-
 # The reference snapshot stores every field as a JSON list cell, so both sides are read the same way.
 stored_terms = event_terms
 
@@ -85,18 +80,13 @@ def compare(pairs: list[tuple[dict, dict]]) -> dict:
         return result
     all_six = [True] * n
     for field in FIELDS:
-        exact = both_empty = 0
-        jac = 0.0
+        exact = 0
         for i, (row, doc) in enumerate(pairs):
-            a, b = event_terms(row, field), stored_terms(doc, field)
-            if a == b:
+            if event_terms(row, field) == stored_terms(doc, field):
                 exact += 1
-                if not a:
-                    both_empty += 1
             else:
                 all_six[i] = False
-            jac += jaccard(a, b)
-        result["fields"][field] = {"exact": exact / n, "mean_jaccard": jac / n, "both_empty": both_empty / n}
+        result["fields"][field] = {"exact": exact / n}
     result["all_six"] = sum(all_six) / n
     return result
 
@@ -144,10 +134,20 @@ def num(x) -> str:
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument("--examples", type=int, default=0)
-    parser.add_argument("--out", type=Path, default=REPO / "reports" / "agreement_glm53flash_vs_deepseek.md")
+    parser.add_argument("--events", type=Path, help="GLM events file (default: the e1 enriched100 log). "
+                        "e.g. runs/e2/events_enriched100.csv for the experimental e2 prompt.")
+    parser.add_argument("--label", default="GLM-5.3-Flash", help="Name for the GLM run in the report.")
+    parser.add_argument("--out", type=Path)
     args = parser.parse_args()
 
-    events_path = REPO / COHORTS["enriched100"]["events"]
+    events_path = args.events or REPO / COHORTS["enriched100"]["events"]
+    if not events_path.is_absolute():
+        events_path = REPO / events_path
+    if args.out is not None and not args.out.is_absolute():
+        args.out = REPO / args.out
+    if args.out is None:
+        is_e2 = "e2" in events_path.parts
+        args.out = (REPO / "reports" / "e2_improvement" / "agreement_e2_vs_deepseek.md") if is_e2 else (REPO / "reports" / "agreement_glm53flash_vs_deepseek.md")
     reference_path = REPO / COHORTS["enriched100"]["reference"]
     for p in (events_path, reference_path):
         if not p.exists():
@@ -168,31 +168,39 @@ def main() -> int:
     ds_profile = profile([reference[r] for r in events if r in reference])
 
     lines = [
-        "# GLM-5.3-Flash vs DeepSeek V4.1-Flash on the enriched100 cohort", "",
-        f"{result['n']} records compared ({len(reference)} in the cohort, {len(latest_any)} with a GLM event, "
-        f"{n_parse_error} GLM parse_error, {n_truncated} truncated). Prompt e1, vocab sha256 41db952f..., "
-        "identical system message and parser on both sides.", "",
-        "| Field | GLM vs DeepSeek V4.1: exact | Jaccard | both empty | Baseline, V4.1 vs V4: exact | Jaccard |",
-        "|---|---:|---:|---:|---:|---:|",
+        f"# {args.label} vs DeepSeek V4.1-Flash: how often they give the same tags", "",
+        f"Both models tagged the same {result['n']} papers. DeepSeek used prompt e1; {args.label} used "
+        f"{'the EXPERIMENTAL local prompt e2 (experimental/e2/PROVENANCE.md)' if 'e2' in events_path.parts else 'the same prompt (e1) and vocabulary'}. "
+        "A field counts as agreeing when both models chose exactly the same terms.", "",
+        f"GLM run: {len(latest_any)} of {len(reference)} papers tagged, {n_parse_error} unreadable answers, "
+        f"{n_truncated} cut off at the length limit.", "",
+        f"| Field | {args.label} and DeepSeek agree | For comparison: DeepSeek agrees with its own previous version |",
+        "|---|---:|---:|",
     ]
     for field, s in result.get("fields", {}).items():
-        lines.append(f"| {field} | {pct(s['exact'])} | {s['mean_jaccard']:.3f} | {pct(s['both_empty'])} | "
-                     f"{pct(BASELINE_V4_VS_V41[field])} | {BASELINE_JACCARD[field]:.3f} |")
-    lines += [f"| **all six** | **{pct(result.get('all_six'))}** | | | **{pct(BASELINE_V4_VS_V41['all_six'])}** | |", "",
-              "The baseline is DeepSeek disagreeing with its own previous version (2026-09-15). A GLM figure near it",
-              "means GLM diverges from DeepSeek about as much as DeepSeek diverges from itself.", "",
-              "| | GLM-5.3-Flash | DeepSeek V4.1-Flash (stored) |", "|---|---:|---:|",
-              f"| records with a vocabulary violation | {pct(glm_profile['violating_share'])} | {pct(ds_profile['violating_share'])} |",
-              f"| mean input tokens | {num(glm_profile['mean_input_tokens'])} | {num(ds_profile['mean_input_tokens'])} |",
-              f"| prompt-cache share | {pct(glm_profile['cache_share'])} | {pct(ds_profile['cache_share'])} |",
-              f"| mean output tokens | {num(glm_profile['mean_output_tokens'])} | {num(ds_profile['mean_output_tokens'])} |",
-              f"| mean reasoning tokens | {num(glm_profile['mean_reasoning_tokens']) if glm_profile['mean_reasoning_tokens'] else 'not reported'} | not stored |",
+        lines.append(f"| {FIELD_LABELS[field]} | {pct(s['exact'])} | {pct(BASELINE_V4_VS_V41[field])} |")
+    lines += [f"| **All six fields at once** | **{pct(result.get('all_six'))}** | **{pct(BASELINE_V4_VS_V41['all_six'])}** |", "",
+              "**How to read this.** The right-hand column is DeepSeek V4.1 against DeepSeek V4 on the same kind of",
+              "papers (2026-09-15). Where GLM's figure is close to it, GLM differs from DeepSeek about as much as",
+              "DeepSeek differs from itself. Where it is well below, GLM tags that field differently.", "",
+              "Agreeing is not the same as being right: two models can agree on a wrong tag, or disagree where both",
+              "tags are defensible. For which model is correct, see `tag_correctness_review_enriched100.md`.", "",
+              "## Run profile", "",
+              f"| | {args.label} | DeepSeek V4.1-Flash |", "|---|---:|---:|",
+              f"| Papers with a tag outside the vocabulary | {pct(glm_profile['violating_share'])} | {pct(ds_profile['violating_share'])} |",
+              f"| Input tokens per paper | {num(glm_profile['mean_input_tokens'])} | {num(ds_profile['mean_input_tokens'])} |",
+              f"| Share of input served from the prompt cache | {pct(glm_profile['cache_share'])} | {pct(ds_profile['cache_share'])} |",
+              f"| Output tokens per paper | {num(glm_profile['mean_output_tokens'])} | {num(ds_profile['mean_output_tokens'])} |",
+              f"| of which reasoning | {num(glm_profile['mean_reasoning_tokens']) if glm_profile['mean_reasoning_tokens'] else 'not reported'} | not stored |",
               ""]
     if args.examples:
-        lines += ["## Disagreements", ""]
+        lines += ["## Examples of disagreement", "",
+                  f"Up to {args.examples} per field. Record IDs are shortened to their first 8 characters.", "",
+                  f"| Field | Record | {args.label} | DeepSeek |", "|---|---|---|---|"]
+        show = lambda terms: ", ".join(terms) if terms else "(none)"
         for field in FIELDS:
             for row in disagreements(pairs, field, args.examples):
-                lines.append(f"- `{field}` {row['record_id']}: GLM {row['glm']} / DeepSeek {row['deepseek']}")
+                lines.append(f"| {FIELD_LABELS[field]} | {row['record_id'][:8]} | {show(row['glm'])} | {show(row['deepseek'])} |")
         lines.append("")
     text = "\n".join(lines)
     print(text)

@@ -39,6 +39,7 @@ from glm_enrich import pricing  # noqa: E402
 from glm_enrich.fidelity import manifest_sha256, problems, render  # noqa: E402
 from glm_enrich.zai_client import DEFAULT_BASE_URL, DEFAULT_REASONING_EFFORT, TIER_MODEL_IDS, ZaiClient  # noqa: E402
 from dome_triage.llm_classify import enrichment as llm_enrichment  # noqa: E402
+from glm_enrich import e2 as e2_prompt  # noqa: E402
 
 SPEND_LOG = REPO / "runs" / "spend_log.csv"
 SPEND_COLUMNS = ["batch_id", "started_utc", "cohort", "model", "reasoning_effort", "records",
@@ -121,11 +122,17 @@ def main(argv: Optional[list[str]] = None, client_factory: Optional[Callable[...
     parser.add_argument("--confirm", action="store_true", help="Actually call the API. Without it, nothing is spent.")
     parser.add_argument("--retry-truncated", action="store_true")
     parser.add_argument("--ignore-lock", action="store_true")
+    parser.add_argument("--prompt", choices=("e1", "e2"), default="e1",
+                        help="e1: the validated prompt (default). e2: the EXPERIMENTAL local prompt in experimental/e2/, "
+                             "written to runs/e2/.")
     args = parser.parse_args(argv)
 
     if args.cohort:
         args.input = args.input or REPO / COHORTS[args.cohort]["input"]
-        args.events_out = args.events_out or REPO / COHORTS[args.cohort]["events"]
+        default_events = REPO / COHORTS[args.cohort]["events"]
+        if args.prompt == "e2":
+            default_events = default_events.parent / "e2" / default_events.name
+        args.events_out = args.events_out or default_events
     if not args.input or not args.events_out:
         parser.error("--input and --events-out are both required (or --cohort)")
 
@@ -138,25 +145,37 @@ def main(argv: Optional[list[str]] = None, client_factory: Optional[Callable[...
         print(f"{rel(args.input)} does not exist -- run scripts/export_cohorts.py first.")
         return 1
     records = pd.read_csv(args.input, dtype=str)
-    static_system_text, _, lookup = render()
+    if args.prompt == "e2":
+        e2_found = e2_prompt.e2_problems()
+        if e2_found:
+            print("REFUSING: the experimental e2 prompt is not the frozen one:\n  " + "\n  ".join(e2_found))
+            return 1
+        static_system_text, _, lookup = e2_prompt.render_e2()
+        columns, prompt_version = e2_prompt.E2_EVENT_COLUMNS, e2_prompt.E2_PROMPT_VERSION
+        done_ids = e2_prompt.already_enriched_ids
+    else:
+        static_system_text, _, lookup = render()
+        columns, prompt_version = llm_enrichment.EVENT_COLUMNS, llm_enrichment.ENRICHMENT_PROMPT_VERSION
+        done_ids = llm_enrichment._already_enriched_ids
     vocab_hash = llm_enrichment.vocab_sha256(static_system_text)
-    assert vocab_hash == EXPECTED_VOCAB_SHA256
+    assert vocab_hash == (e2_prompt.EXPECTED_E2_SHA256 if args.prompt == "e2" else EXPECTED_VOCAB_SHA256)
 
     events_path = args.events_out
     existing_events = (pd.read_csv(events_path, dtype=str) if events_path.exists()
-                       else pd.DataFrame(columns=llm_enrichment.EVENT_COLUMNS))
+                       else pd.DataFrame(columns=columns))
     if not existing_events.empty:
         existing_events["parse_status"] = existing_events["parse_status"].fillna("")
 
     if args.limit is not None:
-        done = llm_enrichment._already_enriched_ids(existing_events, args.tier, vocab_hash)
+        done = done_ids(existing_events, args.tier, vocab_hash)
         remaining = records[~records["record_id"].isin(done)]
         records = pd.concat([records[records["record_id"].isin(done)], remaining.head(args.limit)])
 
-    done = llm_enrichment._already_enriched_ids(existing_events, args.tier, vocab_hash, args.retry_truncated)
+    done = done_ids(existing_events, args.tier, vocab_hash, args.retry_truncated)
     n_todo = int((~records["record_id"].isin(done)).sum())
     projection = pricing.projected_usd(args.tier, n_todo)
     print(f"{n_todo:,} record(s) to enrich from {rel(args.input)} -> {rel(events_path)}\n"
+          f"  prompt {prompt_version} ({vocab_hash[:12]}...){'  EXPERIMENTAL, local only' if args.prompt == 'e2' else ''}\n"
           f"  model {TIER_MODEL_IDS[args.tier]}, reasoning_effort {args.reasoning_effort}, concurrency {args.concurrency}\n"
           f"  projected ${projection:.2f} (list price x {pricing.HEADROOM:g} headroom on the e1 token profile; "
           f"prices as of {pricing.AS_OF}), cap ${args.max_usd:.2f}")
@@ -180,19 +199,22 @@ def main(argv: Optional[list[str]] = None, client_factory: Optional[Callable[...
         client = client_factory(reasoning_effort=args.reasoning_effort)
 
     started = datetime.now(timezone.utc)
-    batch_id = f"enrich_{args.tier}_{started.strftime('%Y%m%dT%H%M%S')}"
+    batch_id = f"enrich_{'e2_' if args.prompt == 'e2' else ''}{args.tier}_{started.strftime('%Y%m%dT%H%M%S')}"
     manifest_path = REPO / "runs" / f"{batch_id}.manifest.json"
     manifest = {
         "batch_id": batch_id, "cohort": args.cohort, "started_utc": started.isoformat(),
         "model": TIER_MODEL_IDS[args.tier], "base_url": getattr(client, "base_url", DEFAULT_BASE_URL),
         "reasoning_effort": args.reasoning_effort, "temperature": 0.0,
         "max_tokens": llm_enrichment.ENRICHMENT_MAX_TOKENS, "response_format": "json_object",
-        "prompt_version": llm_enrichment.ENRICHMENT_PROMPT_VERSION, "vocab_sha256": vocab_hash,
+        "prompt_version": prompt_version, "vocab_sha256": vocab_hash,
         "vendor_manifest_sha256": manifest_sha256(), "git_commit": git_commit(),
         "input": rel(args.input), "input_sha256": hashlib.sha256(args.input.read_bytes()).hexdigest(),
         "events": rel(events_path), "concurrency": args.concurrency, "limit": args.limit,
         "records_to_do": n_todo, "projected_usd": round(projection, 4),
     }
+    if args.prompt == "e2":
+        manifest["experimental"] = "prompt e2: local only, not production; see experimental/e2/PROVENANCE.md"
+        manifest["e2_files_sha256"] = e2_prompt.e2_manifest_entries()
     manifest_path.parent.mkdir(parents=True, exist_ok=True)
     manifest_path.write_text(json.dumps(manifest, indent=2) + "\n", encoding="utf-8")
 
@@ -200,15 +222,17 @@ def main(argv: Optional[list[str]] = None, client_factory: Optional[Callable[...
     n_written = 0
     try:
         with events_file_lock(events_path, ignore_lock=args.ignore_lock):
-            n_written = stream_events_to_disk(
-                events_path,
-                llm_enrichment.enrich_records(
+            if args.prompt == "e2":
+                events = e2_prompt.enrich_records_e2(
                     records, args.tier, client, static_system_text, lookup, batch_id,
                     existing_events=existing_events, max_workers=args.concurrency,
-                    reasoning_effort=None, retry_truncated=args.retry_truncated,
-                ),
-                columns=llm_enrichment.EVENT_COLUMNS,
-            )
+                    retry_truncated=args.retry_truncated)
+            else:
+                events = llm_enrichment.enrich_records(
+                    records, args.tier, client, static_system_text, lookup, batch_id,
+                    existing_events=existing_events, max_workers=args.concurrency,
+                    reasoning_effort=None, retry_truncated=args.retry_truncated)
+            n_written = stream_events_to_disk(events_path, events, columns=columns)
     except BaseException:
         print(f"CRASHED after {n_written} record(s) safely written to {rel(events_path)}. "
               "Re-run the same command to resume; finished records are skipped.")
@@ -246,7 +270,8 @@ def summarise(events_path: Path, batch_id: str, manifest: dict, manifest_path: P
                      "reasoning_tokens": reasoning, "list_usd": round(list_usd, 6), "wall_seconds": round(wall, 1)})
     manifest_path.write_text(json.dumps(manifest, indent=2) + "\n", encoding="utf-8")
     if n_written:
-        append_spend({"batch_id": batch_id, "started_utc": manifest["started_utc"], "cohort": args.cohort or "",
+        append_spend({"batch_id": batch_id, "started_utc": manifest["started_utc"],
+                      "cohort": (args.cohort or "") + (" (e2)" if args.prompt == "e2" else ""),
                       "model": manifest["model"], "reasoning_effort": args.reasoning_effort, "records": n_written,
                       "input_tokens": tokens_in, "cache_hit_tokens": cached, "output_tokens": out,
                       "reasoning_tokens": reasoning, "list_usd": f"{list_usd:.6f}", "billed_usd": "",
