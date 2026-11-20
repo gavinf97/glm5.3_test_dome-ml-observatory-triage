@@ -56,8 +56,9 @@ def load_env(path: Path = REPO / ".env") -> dict[str, str]:
 
 
 def triage_repo() -> Path:
-    """The sibling dome-ml-observatory-triage checkout: source of the vendored files and of the
-    read-only moros client. Relative paths resolve against this repository."""
-    value = load_env().get("TRIAGE_REPO") or "../dome-ml-observatory-triage"
+    """The dome-ml-observatory-triage checkout: source of the vendored files and of the read-only
+    moros client. Relative paths resolve against this repository, which since 2026-11-20 sits inside
+    dome-ml-observatory-research, two levels below the folder holding triage."""
+    value = load_env().get("TRIAGE_REPO") or "../../dome-ml-observatory-triage"
     path = Path(value)
     return (path if path.is_absolute() else (REPO / path)).resolve()

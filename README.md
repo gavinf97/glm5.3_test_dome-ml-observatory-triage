@@ -1,4 +1,8 @@
-# GLM-5.3-Flash enrichment test
+# GLM-5.3-Flash enrichment test (`dome-ml-observatory-glm53-validation`)
+
+Named `glm5.3_test_dome-ml-observatory-triage` until 2026-11-20. Checked out inside [`dome-ml-observatory-research`](https://github.com/gavinf97/dome-ml-observatory-research), the research record of DOME Observatory, as its own git repository.
+
+**Outcome.** Prompt e2 was validated here, extended to e3 (`dome-ml-observatory-triage`, `curation_criteria/e3/`), and e3 became the production enrichment prompt on 2026-11-16. On 2026-11-20 its first 100,073 records were loaded into the corpus. The human-rater half of the validation (`validation/`) is still open.
 
 Does Z.ai's GLM-5.3-Flash enrich DOME Observatory records as well as DeepSeek V4.1-Flash?
 This repository runs the observatory's validated enrichment (prompt `e1`, vocab sha256 `41db952f…`) with only the model changed. The prompt, vocabularies, parser and event format are byte-identical copies, in [`vendor/`](vendor/).
